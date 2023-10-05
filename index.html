@@ -393,6 +393,28 @@
             from, to { border-color: transparent }
             50% { border-color: #000 }
         }
+
+        .typewriter {
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: .15em;
+        font-size: 2em;
+        }
+
+        .fade-in {
+        opacity: 0;
+        animation: fadeIn 7s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+        }
     </style>
 </head>
 <body>
@@ -450,18 +472,23 @@
         </div>
     </nav>
 
+    <!-- <div class="container mt-5">
+        <div class="text-center">
+            <h1 class="display-4 typewriter" id="welcome-text"></h1>
+        </div>
+    </div> -->
+
     <div class="jumbotron jumbotron-fluid header-jumbotron fonts">
         <div class="container text-center mt-5">
-            <h1 class="display-4">Selamat Datang di <span class="typing-text">Cafeku.</span></h1>
-            <p class="lead">Nikmati suasana santai dan hidangan lezat kami.</p>
+            <h1 class="display-4 typewriter typing-text" id="welcome-text"></h1>
+            <p class="lead fade-in">Nikmati suasana santai dan hidangan lezat kami.</p>
         </div>
-    
     </div>
 
     <div class="card-animation-cont pt-4" id="menu">
         <!-- Duplicate the following div to add cards -->
         <div class="card">
-            <img src="2.png" alt=""/>
+            <img src="3796390.jpg" alt=""/>
             <div class="info">
                 <strong>Makanan Berat</strong>
                 <span class="sub-title">Ini adalah makanan berat</span>
@@ -475,28 +502,28 @@
         </div>
 
         <div class="card">
-            <img src="1.png" alt="" />
+            <img src="cemilan.png" alt="" />
             <div class="info">
-                <strong>Makanan Manis</strong>
-                <span class="sub-title">Ini Makanan manis/ringan</span>
+                <strong>Makanan Ringan</strong>
+                <span class="sub-title">Ini adalah Makanan ringan</span>
                 <hr />
                 <div class="hide-info">
                     <span class="text">
-                        Makanan manis atau ringan adalah hidangan yang biasanya memiliki rasa manis, seringkali digunakan sebagai hidangan penutup atau camilan.
+                        Makanan ringan adalah hidangan yang biasanya memiliki rasa manis, seringkali digunakan sebagai hidangan penutup atau camilan.
                     </span>
                 </div>
             </div>
         </div>
 
         <div class="card">
-            <img src="3.png" alt="" />
+            <img src="minuman.png" alt="" />
             <div class="info">
-                <strong>Makanan Sehat</strong>
-                <span class="sub-title">Ini adalah makanan sehat</span>
+                <strong>Minuman</strong>
+                <span class="sub-title">Ini adalah minuman</span>
                 <hr />
                 <div class="hide-info">
                     <span class="text">
-                        Makanan sehat adalah bagian penting dari pola makan seimbang yang dapat memberikan berbagai nutrisi penting dan mendukung kesehatan tubuh.
+                        Minuman adalah cairan yang menyegarkan atau memuaskan dahaga. Ada yang panas seperti teh atau kopi, memberikan hangat dan semangat.
                     </span>
                 </div>
             </div>
@@ -510,22 +537,28 @@
                     <div class="card-body">
                         <h4 class="display-6 text-center mb-4">Menu</h4>
                         <p>
-                            - Burger
+                            - Nasi goreng biasa/seafood
                         </p>
                         <p>
-                            - Pizza
+                            - Nasi putih
                         </p>
                         <p>
-                            - Hotdog
+                            - Bebek goreng/bakar
                         </p>
                         <p>
-                            - Steak
+                            - Ayam goreng/bakar
                         </p>
                         <p>
-                            - Coca-Cola
+                            - Ikan goreng/bakar
                         </p>
                         <p>
-                            - Spaghetti
+                            - Cumi tepung 
+                        </p>
+                        <p>
+                            - Mie goreng/rebus
+                        </p>
+                        <p>
+                            - Sambal
                         </p>
                     </div>
                 </div>
@@ -550,7 +583,13 @@
                             -Popcorn
                         </p>
                         <p>
-                            - Kopi
+                            - Donat
+                        </p>
+                        <p>
+                            - Lolipop
+                        </p>
+                        <p>
+                            - Croissant
                         </p>
                     </div>
                 </div>
@@ -566,16 +605,22 @@
                             - Jus Buah
                         </p>
                         <p>
-                            - Salad Buah
+                            - Kopi
                         </p>
                         <p>
-                            - Salad Sayur
+                            - Teh manis panas/dingin
                         </p>
                         <p>
-                            - Buah-Buahan
+                            - Milkshake
                         </p>
                         <p>
-                            - Sayur-Mayur
+                            - Cappucino cincau
+                        </p>
+                        <p>
+                            - Air mineral
+                        </p>
+                        <p id="tentang">
+                            - Es campur
                         </p>
                     </div>
                 </div>
@@ -583,7 +628,7 @@
         </div>
     </div>
 
-    <div class="container mt-5" id="tentang">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-12 col-md-5">
                 <img src="cafe.png" alt="" class="img rounded img-fluid">
@@ -613,7 +658,7 @@
                 <form id="saranForm">
                     <div class="toast" id="pesanNotifikasi" data-autohide="true" data-delay="3000" role="alert" aria-live="assertive" aria-atomic="true">
                         <div class="toast-header">
-                            <strong class="mr-auto">Notifikasi</strong>
+                            <strong class="mr-auto">Notifigikasi</strong>
                             <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -1023,6 +1068,27 @@
                 nav.classList.remove('bg-dark');
             }
         })
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyL/Jr7F63sA4l4MYY4kHpDWEUnZ9vVcP"
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+        var text = "Selamat Datang Di Cafeku";
+        var index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+            $('#welcome-text').append(text.charAt(index));
+            index++;
+            setTimeout(typeWriter, 100); // Ganti angka ini untuk mengatur kecepatan ketik
+            }
+        }
+
+        typeWriter();
+        });
     </script>
 </body>
 </html>
