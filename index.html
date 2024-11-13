@@ -68,6 +68,47 @@
         .bg-dark.shadow {
         background-color: #000 !important;
         }
+
+        /* Tambahkan efek hover pada kartu */
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Gaya navbar yang lebih menarik */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .navbar-nav .nav-link {
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+        }
+
+        /* Gaya untuk jumbotron */
+        .header-jumbotron {
+            background: url('your-background-image.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+        }
+
+        /* Gaya untuk carousel */
+        .carousel-card img {
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .carousel-card img:hover {
+            transform: scale(1.1);
+        }
                 </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -143,7 +184,7 @@
     <div class="card-animation-cont pt-4">
         <!-- Duplicate the following div to add cards -->
         <div class="card">
-            <img src="3796390.jpg" alt=""/>
+            <img src="makanan.jpg" alt=""/>
             <div class="info">
                 <strong>Makanan Berat</strong>
                 <span class="sub-title">Tentang makanan Berat</span>
@@ -157,7 +198,7 @@
         </div>
 
         <div class="card">
-            <img src="cemilan.png" alt="" />
+            <img src="cemilan.jpg" alt="" />
             <div class="info">
                 <strong>Makanan Ringan</strong>
                 <span class="sub-title">Tentang Makanan Ringan</span>
@@ -171,7 +212,7 @@
         </div>
 
         <div class="card">
-            <img src="minuman.png" alt="" />
+            <img src="minuman.jpg" alt="" />
             <div class="info">
                 <strong>Minuman</strong>
                 <span class="sub-title">Tentang Minuman</span>
@@ -371,7 +412,7 @@
     <div class="container mt-5" id="tentang">
         <div class="row">
             <div class="col-12 col-md-5">
-                <img src="cafe.png" alt="" class="img rounded img-fluid">
+                <img src="cafe.jpeg" alt="" class="img rounded img-fluid">
             </div>
             <div class="col-12 col-md-7">
                 <b class="display-5">Tentang Cafe</b>
@@ -395,7 +436,7 @@
         <div class="card shadow">
             <div class="card-body">
                 <h4 class="display-6"><strong>Berikan Saran, Masukan dan bintang</strong></h4>
-                <form id="saranForm">
+                <form id="saranForm" action="submit.php" method="POST">
                     <div class="toast" id="pesanNotifikasi" data-autohide="true" data-delay="3000" role="alert" aria-live="assertive" aria-atomic="true">
                         <div class="toast-header">
                             <strong class="mr-auto">Notifikasi</strong>
@@ -408,15 +449,14 @@
                         </div>
                     </div>
                     <div class="row">
-
                         <div class="col-md-8">
                             <div class="mb-3">
                                 <div class="input-cont">
-                                    <input type="text" name="name" id="fullname" placeholder="Fullname" required/>
+                                    <input type="text" name="name" id="fullname" placeholder="Fullname" required style="width: 100%;"/>
                                     <label for="name">Name</label>
                                 </div>
                                 <div class="input-cont mt-1">
-                                    <input type="text" name="email" id="fullname" placeholder="Email" required/>
+                                    <input type="text" name="email" id="email" placeholder="Email" required style="width: 100%;"/>
                                     <label for="email">Email</label>
                                 </div>
                             </div>
@@ -427,22 +467,22 @@
                             <div class="mb-3 mt-3">
                                 <button type="submit" class="btn btn-primary">Kirim</button>
                             </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="mb-3">
-                            <div class="feedback">
-                                <div class="rating">
-                                    <input type="radio" name="rating" id="rating-5" />
-                                    <label for="rating-5"></label>
-                                    <input type="radio" name="rating" id="rating-4" />
-                                    <label for="rating-4"></label>
-                                    <input type="radio" name="rating" id="rating-3" />
-                                    <label for="rating-3"></label>
-                                    <input type="radio" name="rating" id="rating-2" />
-                                    <label for="rating-2"></label>
-                                    <input type="radio" name="rating" id="rating-1" />
-                                    <label for="rating-1"></label>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <div class="feedback">
+                                    <div class="rating">
+                                        <input type="radio" name="rating" id="rating-5" value="5" />
+                                        <label for="rating-5"></label>
+                                        <input type="radio" name="rating" id="rating-4" value="4" />
+                                        <label for="rating-4"></label>
+                                        <input type="radio" name="rating" id="rating-3" value="3" />
+                                        <label for="rating-3"></label>
+                                        <input type="radio" name="rating" id="rating-2" value="2" />
+                                        <label for="rating-2"></label>
+                                        <input type="radio" name="rating" id="rating-1" value="1" />
+                                        <label for="rating-1"></label>
                                     <div class="emoji-wrapper">
                                         <div class="emoji">
                                         <svg
@@ -746,8 +786,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 </form>
+                </div>
             </div>
         </div>
     </div>
@@ -758,7 +798,7 @@
                 <div class="col-md-4">
                     <h4>Informasi Singkat</h4>
                     <hr>
-                    <p>Cafe ini di dirikan di kota ntah berantah yang berasal dari imajinasi pembuat website ini. Di dirikan pada tanggal 15 September 2023. Terima kasih atas kunjungannya semoga harimu menyenangkan.</p>
+                    <p>Cafe ini di dirikan di kota antah berantah yang berasal dari imajinasi pembuat website ini. Di dirikan pada tanggal 15 September 2023. Terima kasih atas kunjungannya semoga harimu menyenangkan.</p>
                 </div>
                 
                 <div class="col-md-4 ms-auto" id="kontak">
@@ -769,7 +809,7 @@
                     <p>Alamat : Jln Negara, no 123 Bumi.</p>
                     <div class="socialButton mt-3">
                         <a href="https://www.instagram.com/sir_ikoo/"><i class="bx bxl-instagram-alt"></i></a>
-                        <a href="https://www.facebook.com/riko.basawara"><i class="bx bxl-facebook"></i></a>
+                        <a href="https://www.facebook.com/share/1B6SEkLcN1/"><i class="bx bxl-facebook"></i></a>
                         <a href="https://twitter.com/sir_ikoo"><i class="bx bxl-twitter"></i></a>
                         <a href="https://discord.com/channels/@me"><i class="bx bxl-discord-alt"></i></a>
                     </div>
@@ -777,7 +817,7 @@
             </div>
             <hr>
             <div class="text-center text-warning puter">
-                <p>Copyright &copy; 2023 - RIKO RIZKY All Rights Reserved.</p>
+                <p>Copyright &copy; <span id="current-year"></span> - RIKO RIZKY All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -867,6 +907,53 @@
         }, 1000);
         });
     });
+    </script>
+
+    <script>
+        // Mendapatkan tahun saat ini
+        const currentYear = new Date().getFullYear();
+        // Mengisi elemen dengan ID 'current-year' dengan tahun saat ini
+        document.getElementById('current-year').textContent = currentYear;
+    </script>
+
+<script>
+    function updateJumbotronBackground() {
+        const jumbotron = document.querySelector('.header-jumbotron');
+        const currentHour = new Date().getHours();
+
+        if (currentHour >= 6 && currentHour < 11) {
+            // Pagi (6 AM - 11 PM)
+            jumbotron.style.backgroundImage = "url('modepagi.png')";
+        } else if (currentHour >= 11 && currentHour < 18) {
+            // Siang (11 PM - 6 PM)
+            jumbotron.style.backgroundImage = "url('landing.png')";
+        } else {
+            // Malam (6 PM - 6 AM)
+            jumbotron.style.backgroundImage = "url('modemalam.png')";
+        }
+    }
+
+    // Panggil fungsi saat halaman dimuat
+    window.onload = updateJumbotronBackground;
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script>
+        // Konfigurasi Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyfBX1-5BVvc tNSP1S2Sp6mxWpS3t-SmYw",
+            authDomain: "cafe-feedback-d74e5.firebaseapp.com",
+            projectId: "cafe-feedback-d74e5",
+            storageBucket: "cafe-feedback-d74e5.appspot.com",
+            messagingSenderId: "930863827089",
+            appId: "1:930863827089:web:d24d0d9277340b698e51730",
+            measurementId: "G-8M1NHBVXVS"
+        };
+    
+        // Inisialisasi Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
     </script>
 </body>
 </html>
