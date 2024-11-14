@@ -2,9 +2,6 @@
 <html lang="en">
 <head>
         <style>
-            html {
-            scroll-behavior: smooth;
-            }
             .lahan{
             font-family: sans-serif;
             background-color: black;
@@ -98,9 +95,26 @@
 
         /* Gaya untuk jumbotron */
         .header-jumbotron {
-            background: url('your-background-image.jpg') no-repeat center center;
-            background-size: cover;
-            color: white;
+            position: relative;
+            min-height: 100vh;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .header-jumbotron::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .header-jumbotron .container {
+            position: relative;
+            z-index: 2;
         }
 
         /* Gaya untuk carousel */
@@ -176,6 +190,10 @@
             </div>
         </div>
     </nav>
+
+    <div class="loading-screen">
+        <div class="loader"></div>
+    </div>
 
     <div class="jumbotron jumbotron-fluid header-jumbotron" id="beranda">
         <div class="container text-center mt-5">
@@ -467,9 +485,7 @@
                                 <label for="pesan" class="form-label">Pesan</label>
                                 <textarea class="form-control" id="pesan" name="pesan" rows="5" placeholder="Tuliskan Pesan..." required></textarea>
                             </div>
-                            <div class="mb-3 mt-3">
-                                <button type="submit" class="btn btn-primary">Kirim</button>
-                            </div>
+                            
                         </div>
                         
                         <div class="col-md-4">
@@ -788,6 +804,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="mb-3 mt-3">
+                            <button type="submit" class="btn btn-primary">Kirim</button>
+                        </div>
                     </div>
                 </form>
                 </div>
@@ -959,15 +978,48 @@
         const db = firebase.firestore();
     </script>
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-    
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
+           document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+       anchor.addEventListener('click', function (e) {
+           e.preventDefault();
+   
+           const targetId = this.getAttribute('href');
+           const targetElement = document.querySelector(targetId);
+           
+           if (targetElement) {
+               const navHeight = document.querySelector('nav').offsetHeight;
+               const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+               
+               window.scrollTo({
+                   top: targetPosition - navHeight,
+                   behavior: 'smooth'
+               });
+           }
+       });
+   });
+    </script>
+    <script>
+        // Tambahkan fungsi ini di file new.js atau dalam tag <script> di index.html
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scroll untuk semua link dengan href yang dimulai dengan #
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const navHeight = document.querySelector('nav').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                
+                window.scrollTo({
+                    top: targetPosition - navHeight,
                     behavior: 'smooth'
                 });
-            });
+            }
         });
+    });
+});
     </script>
 </body>
 </html>

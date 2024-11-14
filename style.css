@@ -1,3 +1,20 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    position: relative;
+}
+
+section {
+    scroll-margin-top: 80px;
+}
+
+:target {
+    scroll-margin-top: 80px;
+}
+
 .header-jumbotron {
     min-height: 655px;
     background-image: url(landing.png);
