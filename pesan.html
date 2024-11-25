@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan - CafeKu</title>
+    <link rel="icon" href="1694716131277.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css" rel="stylesheet">
+    <style>
+        /* Navbar Styles */
+        .navbar {
+            background-color: #000 !important;
+            padding: 15px 0;
+        }
+
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+        }
+
+        /* Menu Card Styles */
+        .menu-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .menu-image {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .menu-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .menu-info h5 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .menu-info p {
+            color: #007bff;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        /* Quantity Control Styles */
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn-quantity {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1.2em;
+        }
+
+        .btn-quantity:hover {
+            background-color: #0056b3;
+        }
+
+        .quantity-display {
+            font-size: 1.2em;
+            font-weight: bold;
+            min-width: 30px;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Cart Styles */
+        #cart-summary {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            border-radius: 25px 25px 0 0;
+            z-index: 999;
+            display: none;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .cart-badge {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s;
+            user-select: none; /* Prevent text selection */
+        }
+
+        .cart-badge:hover {
+            transform: scale(1.05);
+            background: linear-gradient(45deg, #0056b3, #004094);
+        }
+
+        .cart-badge:active {
+            transform: scale(0.95);
+        }
+
+        /* Form Styles */
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* Tambahkan di bagian style */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .category-title {
+            margin: 40px 0 25px;
+            padding: 15px 25px;
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .category-title:first-of-type {
+            margin-top: 20px;
+        }
+
+        .row + .col-12 {
+            margin-top: 40px;
+        }
+
+        .menu-card {
+            background: white;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .menu-image {
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-card:hover .menu-image {
+            transform: scale(1.05);
+        }
+
+        .menu-info {
+            padding: 20px;
+            background: white;
+        }
+
+        .menu-info h5 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+
+        .menu-info p {
+            color: #007bff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .quantity-control {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 25px;
+            margin-top: 10px;
+        }
+
+        .btn-quantity {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .cart-badge {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            font-weight: bold;
+            padding: 12px 25px;
+        }
+
+        /* Animasi untuk cart badge */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .cart-badge.has-items {
+            animation: bounce 2s infinite;
+        }
+
+        /* Sweet Alert Custom Styles */
+        .swal2-popup {
+            font-family: inherit;
+            border-radius: 15px;
+        }
+
+        .swal2-title {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .swal2-confirm {
+            background-color: #007bff !important;
+            border-radius: 8px !important;
+            padding: 12px 25px !important;
+        }
+
+        .swal2-confirm:focus {
+            box-shadow: none !important;
+        }
+
+        /* Style untuk cart summary */
+        #cart-summary {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 30px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            border-radius: 25px 25px 0 0;
+            z-index: 999;
+            display: none;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        /* Style untuk daftar item */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Style untuk total section */
+        .cart-total {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .cart-total h5 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        /* Style untuk cart items */
+        .cart-items-container {
+            margin-bottom: 20px;
+        }
+
+        .item-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .item-name {
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .item-quantity {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .item-price {
+            font-weight: 600;
+            color: #007bff;
+            font-size: 1.1rem;
+        }
+
+        /* Style untuk tombol pesan */
+        .btn-primary {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+        }
+
+        /* Scrollbar styling */
+        .cart-items-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .cart-items-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .cart-items-container::-webkit-scrollbar-thumb {
+            background: #007bff;
+            border-radius: 10px;
+        }
+
+        .cart-items-container::-webkit-scrollbar-thumb:hover {
+            background: #0056b3;
+        }
+
+        /* Style untuk header cart */
+        .cart-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h4 {
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #666;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Menghilangkan spinner pada input number */
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-social bg-transparent bg-light fonts fixed-top">
+    <!-- Tautan Logo atau Judul -->
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><h3>CafeKu</h3></a>
+        <!-- Tombol Toggle (untuk tampilan responsif pada perangkat kecil) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Daftar Navigasi Utama -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Beranda</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Menu Container -->
+    <div class="container" style="margin-top: 100px">
+        <h2 class="text-center mb-4">Menu Kami</h2>
+        <div class="row" id="menu-container">
+            <!-- Menu items will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Cart Badge -->
+    <div class="cart-badge" id="cart-badge">
+        🛒 <span id="cart-count">0</span> items
+    </div>
+
+    <!-- Cart Summary -->
+    <div id="cart-summary" class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <!-- <h4>Pesanan Anda</h4> -->
+                <div id="cart-items"></div>
+            </div>
+            <div class="col-md-4">
+                <form id="orderForm">
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="nama" placeholder="Silakan masukan nama" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telepon" class="form-label">No. Telepon</label>
+                        <input type="number" class="form-control" id="telepon" placeholder="Silakan masukan nomor telepon" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="alamat" class="form-label">Alamat</label>
+                        <textarea class="form-control" id="alamat" rows="3" placeholder="Silakan masukan alamat" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Pesan Sekarang</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
+    <script>
+        // Data menu lengkap
+        const menuItems = [
+            // Kategori Makanan
+            {
+                id: 1,
+                name: "Seblak",
+                image: "Seblak illustration Indonesian food with cartoon style.jpeg",
+                price: 20000,
+                category: "Makanan"
+            },
+            {
+                id: 2,
+                name: "Mie Ayam Baso Pangsit",
+                image: "Pangsit mie bakso illustration Indonesian food with cartoon style.jpeg",
+                price: 25000,
+                category: "Makanan"
+            },
+            {
+                id: 3,
+                name: "Pangsit Goreng",
+                image: "Pangsit goreng illustration Indonesian food with cartoon style.jpeg",
+                price: 18000,
+                category: "Makanan"
+            },
+            {
+                id: 4,
+                name: "Tahu Bakso",
+                image: "Tahu bakso illustration Indonesian food with cartoon style.jpeg",
+                price: 15000,
+                category: "Makanan"
+            },
+            {
+                id: 5,
+                name: "Pempek",
+                image: "Illustration De Pempek Palembang Cuisine Indonésienne Avec Style Cartoon _ Vecteur Premium.jpeg",
+                price: 22000,
+                category: "Makanan"
+            },
+            {
+                id: 6,
+                name: "Nasi Lalapan Ayam Goreng",
+                image: "Nasi lalapan ayam illustration Indonesian food with cartoon style.jpeg",
+                price: 20000,
+                category: "Makanan"
+            },
+            {
+                id: 7,
+                name: "Nasi Pecel",
+                image: "Premium Vector _ Nasi pecel illustration indonesian food with cartoon style.jpeg",
+                price: 18000,
+                category: "Makanan"
+            },
+            {
+                id: 8,
+                name: "Lumpia Goreng",
+                image: "Lumpia goreng illustration Indonesian food with cartoon style.jpeg",
+                price: 16000,
+                category: "Makanan"
+            },
+            {
+                id: 9,
+                name: "Kue Apem",
+                image: "Premium Vector _ Kue apem illustration indonesian food with cartoon style.jpeg",
+                price: 7000,
+                category: "Makanan"
+            },
+            {
+                id: 10,
+                name: "Kembang Goyang",
+                image: "Premium Vector _ Kembang goyang illustration indonesian food with cartoon style.jpeg",
+                price: 5000,
+                category: "Makanan"
+            },
+            {
+                id: 11,
+                name: "Pie Susu",
+                image: "Premium Vector _ Pie susu illustration indonesian food with cartoon style.jpeg",
+                price: 10000,
+                category: "Makanan"
+            },
+            {
+                id: 12,
+                name: "Sempol",
+                image: "Premium Vector _ Sempol ayam illustration indonesian food with cartoon style.jpeg",
+                price: 5000,
+                category: "Makanan"
+            },
+            {
+                id: 19,
+                name: "Mie Aceh",
+                image: "Mie aceh illustration Indonesian food with cartoon style.jpeg",
+                price: 15000,
+                category: "Makanan"
+            },
+
+            // Kategori Minuman
+            {
+                id: 13,
+                name: "Es Buah",
+                image: "28fe4257-3887-4bda-b842-1fc596e04b36.jpeg",
+                price: 15000,
+                category: "Minuman"
+            },
+            {
+                id: 14,
+                name: "Kopi Soda",
+                image: "Iced Coffee sticker.jpeg",
+                price: 10000,
+                category: "Minuman"
+            },
+            {
+                id: 15,
+                name: "Es Jeruk",
+                image: "44f4c4d0-db7a-458f-8338-bee2ae29fd12.jpeg",
+                price: 7000,
+                category: "Minuman"
+            },
+            {
+                id: 16,
+                name: "Kopi Susu",
+                image: "es susu.jpeg",
+                price: 8000,
+                category: "Minuman"
+            },
+            {
+                id: 17,
+                name: "Lemon Tea",
+                image: "Premium Photo _ A cup of tea with a red straw and a lemon on the side_.jpeg",
+                price: 8000,
+                category: "Minuman"
+            },
+            {
+                id: 18,
+                name: "Es Cendol",
+                image: "asasa.jpeg",
+                price: 10000,
+                category: "Minuman"
+            }
+        ];
+
+        const cart = {};
+        
+        // Fungsi untuk menampilkan menu
+        function displayMenus() {
+            const container = document.getElementById('menu-container');
+            container.innerHTML = '';
+            
+            // Urutan kategori yang diinginkan
+            const categoryOrder = ['Makanan', 'Minuman'];
+            
+            categoryOrder.forEach(category => {
+                const categoryItems = menuItems.filter(item => item.category === category);
+                
+                const categorySection = `
+                    <div class="col-12">
+                        <h3 class="category-title">${category}</h3>
+                    </div>
+                    <div class="row">
+                        ${categoryItems.map(item => `
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="menu-card">
+                                    <img src="${item.image}" class="menu-image" alt="${item.name}">
+                                    <div class="menu-info">
+                                        <h5>${item.name}</h5>
+                                        <p>Rp ${item.price.toLocaleString()}</p>
+                                        <div class="quantity-control">
+                                            <button class="btn-quantity" onclick="updateQuantity(${item.id}, -1)">-</button>
+                                            <span class="quantity-display" id="qty-${item.id}">0</span>
+                                            <button class="btn-quantity" onclick="updateQuantity(${item.id}, 1)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                container.innerHTML += categorySection;
+            });
+        }
+
+        // Fungsi untuk update jumlah pesanan
+        function updateQuantity(itemId, change) {
+            const currentQty = cart[itemId]?.quantity || 0;
+            const newQty = Math.max(0, currentQty + change);
+            const item = menuItems.find(item => item.id === itemId);
+            
+            if (change > 0 && currentQty === 0) {
+                // Tampilkan alert saat menambah item baru
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                });
+
+                Toast.fire({
+                    icon: 'success',
+                    title: `${item.name} ditambahkan ke keranjang`
+                });
+            }
+            
+            if (newQty === 0) {
+                delete cart[itemId];
+            } else {
+                cart[itemId] = {
+                    quantity: newQty,
+                    item: item
+                };
+            }
+            
+            document.getElementById(`qty-${itemId}`).textContent = newQty;
+            updateCartSummary();
+        }
+
+        // Fungsi untuk update ringkasan keranjang
+        function updateCartSummary() {
+            const cartCount = Object.values(cart).reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = cartCount;
+            
+            // Hanya update jumlah item di badge, tidak otomatis menampilkan cart summary
+            if (cartCount === 0) {
+                document.getElementById('cart-summary').style.display = 'none';
+            }
+        }
+
+        // Fungsi untuk menampilkan item di keranjang
+        function displayCartItems() {
+            const container = document.getElementById('cart-items');
+            let html = `
+                <div class="cart-header">
+                    <h4>Pesanan Anda</h4>
+                    <button class="close-cart" onclick="document.getElementById('cart-summary').style.display='none'">×</button>
+                </div>
+                <div class="cart-items-container">
+            `;
+            let total = 0;
+
+            Object.values(cart).forEach(({item, quantity}) => {
+                const subtotal = item.price * quantity;
+                total += subtotal;
+                html += `
+                    <div class="cart-item">
+                        <div class="item-info">
+                            <span class="item-name">${item.name}</span>
+                            <span class="item-quantity">× ${quantity}</span>
+                        </div>
+                        <div class="item-price">
+                            Rp ${subtotal.toLocaleString()}
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `
+                </div>
+                <div class="cart-total">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Total Pesanan</h5>
+                        <h5 class="mb-0">Rp ${total.toLocaleString()}</h5>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        // Update event listener untuk form pemesanan
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const orderData = {
+                customerName: document.getElementById('nama').value,
+                customerPhone: document.getElementById('telepon').value,
+                customerAddress: document.getElementById('alamat').value,
+                items: cart,
+                orderDate: new Date().toLocaleString()
+            };
+
+            // Simpan ke localStorage
+            localStorage.setItem('currentOrder', JSON.stringify(orderData));
+
+            // Menampilkan Sweet Alert
+            Swal.fire({
+                title: 'Pesanan Berhasil!',
+                text: 'Terima kasih telah memesan.',
+                icon: 'success',
+                confirmButtonText: 'Lihat Struk',
+                confirmButtonColor: '#007bff',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Arahkan ke halaman struk
+                    window.location.href = 'tampilan_pesanan.html';
+                }
+            });
+        });
+
+        // Tambahkan event listener untuk cart badge
+        document.getElementById('cart-badge').addEventListener('click', function() {
+            const cartSummary = document.getElementById('cart-summary');
+            if (cartSummary.style.display === 'block') {
+                cartSummary.style.display = 'none';
+            } else {
+                if (Object.keys(cart).length > 0) {
+                    cartSummary.style.display = 'block';
+                    displayCartItems();
+                }
+            }
+        });
+
+        // Inisialisasi tampilan menu
+        document.addEventListener('DOMContentLoaded', function() {
+            displayMenus();
+        });
+
+        // Tambahkan konfirmasi saat mengklik tombol Pesan Sekarang
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            if (Object.keys(cart).length === 0) {
+                Swal.fire({
+                    title: 'Keranjang Kosong',
+                    text: 'Silakan pilih menu terlebih dahulu',
+                    icon: 'warning',
+                    confirmButtonColor: '#007bff'
+                });
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>

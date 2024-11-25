@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struk Pesanan - CafeKu</title>
+    <link rel="icon" href="1694716131277.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <!-- Tambahkan html2canvas -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        
+        .struk-container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .struk-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed #dee2e6;
+        }
+
+        .item-list {
+            margin: 20px 0;
+        }
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s;
+        }
+
+        .item-row:hover {
+            background-color: #f8f9fa;
+        }
+
+        .item-name {
+            flex: 2;
+            font-weight: 500;
+        }
+
+        .item-quantity {
+            flex: 1;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .quantity-btn {
+            background: none;
+            border: 1px solid #dee2e6;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        .item-price {
+            flex: 1;
+            text-align: right;
+            font-weight: 500;
+            color: #007bff;
+        }
+
+        .item-actions {
+            flex: 0.5;
+            text-align: center;
+        }
+
+        .btn-delete {
+            color: #dc3545;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .btn-delete:hover {
+            color: #c82333;
+        }
+
+        .total-section {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .customer-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .editable-field {
+            border: 1px solid #dee2e6;
+            padding: 8px 12px;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .editable-field:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
+
+        .action-buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn-custom {
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        @media print {
+            .action-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="struk-container" id="strukContainer">
+        <div class="struk-header">
+            <h2>CafeKu</h2>
+            <p class="text-muted">Struk Pesanan</p>
+            <p class="text-muted" id="orderDate"></p>
+        </div>
+
+        <div class="customer-info">
+            <div class="mb-3">
+                <label>Nama Pemesan:</label>
+                <input type="text" id="customerName" class="editable-field" disabled>
+            </div>
+            <div class="mb-3">
+                <label>No. Telepon:</label>
+                <input type="tel" id="customerPhone" class="editable-field" disabled>
+            </div>
+            <div class="mb-3">
+                <label>Alamat:</label>
+                <textarea id="customerAddress" class="editable-field" rows="3" disabled></textarea>
+            </div>
+        </div>
+
+        <div class="item-list" id="orderItems">
+            <!-- Item pesanan akan ditampilkan di sini -->
+        </div>
+
+        <div class="total-section">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Total Pesanan:</h5>
+                <h5 class="mb-0" id="totalAmount">Rp 0</h5>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn btn-warning btn-custom" id="editButton" onclick="toggleEdit()">
+                <i class="fas fa-edit me-2"></i>Ubah Pesanan
+            </button>
+            <button class="btn btn-primary btn-custom" id="saveButton" onclick="saveChanges()" style="display: none;">
+                <i class="fas fa-save me-2"></i>Simpan Perubahan
+            </button>
+            <button class="btn btn-info btn-custom" onclick="downloadStruk()">
+                <i class="fas fa-download me-2"></i>Download Struk
+            </button>
+            <button class="btn btn-secondary btn-custom" onclick="window.location.href='index.html'">
+                <i class="fas fa-arrow-left me-2"></i>Kembali
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let orderData = {};
+        let isEditing = false;
+
+        // Load data saat halaman dimuat
+        window.onload = function() {
+            loadOrderData();
+        };
+
+        function toggleEdit() {
+    isEditing = !isEditing;
+    const editButton = document.getElementById('editButton');
+    const saveButton = document.getElementById('saveButton');
+    const downloadButton = document.querySelector('.btn-info'); // Tombol download
+    const fields = document.querySelectorAll('.editable-field');
+
+    if (isEditing) {
+        // Masuk mode edit
+        editButton.style.display = 'none';
+        saveButton.style.display = 'inline-block';
+        downloadButton.style.display = 'none'; // Sembunyikan tombol download
+        fields.forEach(field => field.disabled = false);
+        displayOrderItems();
+
+        Swal.fire({
+            title: 'Mode Edit Aktif',
+            text: 'Anda dapat mengubah pesanan sekarang',
+            icon: 'info',
+            confirmButtonColor: '#007bff'
+        });
+    } else {
+        // Keluar mode edit
+        editButton.style.display = 'inline-block';
+        saveButton.style.display = 'none';
+        downloadButton.style.display = 'inline-block'; // Tampilkan kembali tombol download
+        fields.forEach(field => field.disabled = true);
+        displayOrderItems();
+    }
+}
+
+        function loadOrderData() {
+            const savedOrder = localStorage.getItem('currentOrder');
+            if (savedOrder) {
+                orderData = JSON.parse(savedOrder);
+                document.getElementById('customerName').value = orderData.customerName || '';
+                document.getElementById('customerPhone').value = orderData.customerPhone || '';
+                document.getElementById('customerAddress').value = orderData.customerAddress || '';
+                document.getElementById('orderDate').textContent = orderData.orderDate || new Date().toLocaleString();
+                displayOrderItems();
+            }
+        }
+
+        function displayOrderItems() {
+            const container = document.getElementById('orderItems');
+            let html = '';
+            let total = 0;
+
+            if (orderData.items) {
+                Object.entries(orderData.items).forEach(([itemId, {item, quantity}]) => {
+                    const subtotal = item.price * quantity;
+                    total += subtotal;
+                    html += `
+                        <div class="item-row">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-quantity">
+                                ${isEditing ? `
+                                    <button class="quantity-btn" onclick="updateQuantity('${itemId}', -1)">-</button>
+                                    <span>${quantity}</span>
+                                    <button class="quantity-btn" onclick="updateQuantity('${itemId}', 1)">+</button>
+                                ` : `<span>${quantity}</span>`}
+                            </div>
+                            <div class="item-price">Rp ${subtotal.toLocaleString()}</div>
+                            <div class="item-actions">
+                                ${isEditing ? `<i class="fas fa-trash btn-delete" onclick="deleteItem('${itemId}')"></i>` : ''}
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            container.innerHTML = html;
+            document.getElementById('totalAmount').textContent = `Rp ${total.toLocaleString()}`;
+        }
+
+        function updateQuantity(itemId, change) {
+            if (!isEditing) return;
+
+            if (orderData.items[itemId]) {
+                const newQuantity = orderData.items[itemId].quantity + change;
+                if (newQuantity > 0) {
+                    orderData.items[itemId].quantity = newQuantity;
+                } else {
+                    deleteItem(itemId);
+                    return;
+                }
+                displayOrderItems();
+            }
+        }
+
+        function deleteItem(itemId) {
+            if (!isEditing) return;
+
+            Swal.fire({
+                title: 'Hapus item?',
+                text: "Item akan dihapus dari pesanan",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#dc3545',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    delete orderData.items[itemId];
+                    displayOrderItems();
+                    Swal.fire('Terhapus!', 'Item telah dihapus dari pesanan.', 'success');
+                }
+            });
+        }
+
+        function saveChanges() {
+            if (!isEditing) return;
+
+            orderData.customerName = document.getElementById('customerName').value;
+            orderData.customerPhone = document.getElementById('customerPhone').value;
+            orderData.customerAddress = document.getElementById('customerAddress').value;
+
+            if (!orderData.customerName || !orderData.customerPhone || !orderData.customerAddress) {
+                Swal.fire('Error!', 'Mohon lengkapi semua data pelanggan', 'error');
+                return;
+            }
+
+            localStorage.setItem('currentOrder', JSON.stringify(orderData));
+            toggleEdit();
+
+            Swal.fire({
+                title: 'Berhasil!',
+                text: 'Perubahan telah disimpan',
+                icon: 'success',
+                confirmButtonColor: '#007bff'
+            });
+        }
+
+        async function downloadStruk() {
+            // Sembunyikan tombol sementara
+            const actionButtons = document.querySelector('.action-buttons');
+            actionButtons.style.display = 'none';
+
+            try {
+                // Ambil elemen struk
+                const strukElement = document.getElementById('strukContainer');
+
+                // Konversi ke canvas
+                const canvas = await html2canvas(strukElement, {
+                    scale: 2,
+                    backgroundColor: '#ffffff',
+                    logging: false
+                });
+
+                // Konversi ke gambar
+                const image = canvas.toDataURL('image/png');
+
+                // Buat link download
+                const link = document.createElement('a');
+                link.download = `Struk_CafeKu_${new Date().getTime()}.png`;
+                link.href = image;
+                link.click();
+
+                Swal.fire({
+                    title: 'Berhasil!',
+                    text: 'Struk telah didownload',
+                    icon: 'success',
+                    confirmButtonColor: '#007bff'
+                });
+            } catch (error) {
+                Swal.fire('Error!', 'Gagal mendownload struk', 'error');
+            } finally {
+                // Tampilkan kembali tombol
+                actionButtons.style.display = 'flex';
+            }
+        }
+    </script>
+</body>
+</html>

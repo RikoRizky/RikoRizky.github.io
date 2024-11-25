@@ -417,3 +417,50 @@ to {
     /* font-family: comic sans ms; */
     font-family: sans-serif;
 }
+
+/* Styling untuk floating order badge */
+.order-badge {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    user-select: none;
+}
+
+.order-badge:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #0056b3, #004094);
+    box-shadow: 0 4px 15px rgba(19, 75, 139, 0.4);
+}
+
+.order-badge:active {
+    transform: scale(0.95);
+}
+
+/* Animasi bounce */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.order-badge {
+    animation: bounce 2s infinite;
+}
+
+/* Media query untuk perangkat mobile */
+@media (max-width: 768px) {
+    .order-badge {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
