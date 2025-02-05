@@ -457,7 +457,7 @@
         <div class="card shadow">
             <div class="card-body">
                 <h4 class="display-6"><strong>Berikan Saran, Masukan dan bintang</strong></h4>
-                <form id="saranForm" action="submit.php" method="POST">
+                <form id="saranForm" onsubmit="sendEmail(event)">
                     <div class="toast" id="pesanNotifikasi" data-autohide="true" data-delay="3000" role="alert" aria-live="assertive" aria-atomic="true">
                         <div class="toast-header">
                             <strong class="mr-auto">Notifikasi</strong>
@@ -827,8 +827,8 @@
                     <h4>Kontak</h4>
                     <hr>
                     <p>Email  : rikorizky20@gmail.com</p>
-                    <p>NO     : 081223209190</p>
-                    <p>Alamat : Jln Negara, no 123 Bumi.</p>
+                    <p>No Telpon    : 081223209190</p>
+                    <p>Instagram : sir_ikoo</p>
                     <div class="socialButton mt-3">
                         <a href="https://www.instagram.com/sir_ikoo/"><i class="bx bxl-instagram-alt"></i></a>
                         <a href="https://www.facebook.com/share/1B6SEkLcN1/"><i class="bx bxl-facebook"></i></a>
@@ -978,24 +978,24 @@
         const db = firebase.firestore();
     </script>
     <script>
-           document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-       anchor.addEventListener('click', function (e) {
-           e.preventDefault();
-   
-           const targetId = this.getAttribute('href');
-           const targetElement = document.querySelector(targetId);
-           
-           if (targetElement) {
-               const navHeight = document.querySelector('nav').offsetHeight;
-               const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-               
-               window.scrollTo({
-                   top: targetPosition - navHeight,
-                   behavior: 'smooth'
-               });
-           }
-       });
-   });
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+    
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const navHeight = document.querySelector('nav').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                
+                window.scrollTo({
+                    top: targetPosition - navHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
     </script>
     <script>
         // Tambahkan fungsi ini di file new.js atau dalam tag <script> di index.html
@@ -1020,6 +1020,56 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script>
+        // Inisialisasi EmailJS
+        (function() {
+            emailjs.init("ZBsQyaygr0Vk9LqZO");
+        })();
+    
+        // Tangkap form dengan ID yang sesuai
+        const form = document.getElementById('saranForm');
+        
+        function sendEmail(e) {
+            e.preventDefault();
+            
+            // Ambil nilai dari form dengan selector yang tepat
+            const nama = document.querySelector('input[name="name"]').value;
+            const email = document.querySelector('input[name="email"]').value;
+            const pesan = document.querySelector('textarea[name="pesan"]').value;
+            const rating = document.querySelector('input[name="rating"]:checked')?.value || 'Tidak ada rating';
+    
+            console.log('Data yang akan dikirim:', {
+                nama, email, pesan, rating
+            });
+
+            const templateParams = {
+                from_name: nama,
+                from_email: email,
+                message: pesan,
+                rating: rating
+            };
+    
+            emailjs.send('Mautauaja12', 'template_4x8eo6o', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response);
+                    // Tampilkan toast notification
+                    const toast = new bootstrap.Toast(document.getElementById("pesanNotifikasi"));
+                    toast.show();
+                    // Reset form
+                    document.getElementById('saranForm').reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Gagal mengirim pesan. Silakan coba lagi.');
+                });
+        }
+    
+        // Tambahkan event listener ke form
+        if (form) {
+            form.addEventListener('submit', sendEmail);
+        }
     </script>
     <div class="order-badge" onclick="window.location.href='pesan.html'">
         <i class="fas fa-utensils me-2"></i>Pesan Menu
