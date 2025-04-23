@@ -79,6 +79,87 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
+        .card h2 {
+            color: #000000 !important;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px;
+            opacity: 1 !important;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card:hover h2 {
+            opacity: 1 !important;
+            color: #000000 !important;
+        }
+
+        .card-animation-cont h2 {
+            color: #000000 !important;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 20px 0;
+            opacity: 1 !important;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-animation-cont {
+            padding: 2rem 0;
+        }
+
+        .card-animation-cont .card {
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-animation-cont .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-animation-cont .card .info {
+            padding: 1rem;
+        }
+
+        .card-animation-cont .card .info strong {
+            display: block;
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-animation-cont .card .info .sub-title {
+            display: block;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .card-animation-cont .card .info hr {
+            margin: 1rem 0;
+            border: none;
+            border-top: 1px solid #eee;
+        }
+
+        .card-animation-cont .card .info .hide-info {
+            display: none;
+        }
+
+        .card-animation-cont .card:hover .hide-info {
+            display: block;
+        }
+
+        .card-animation-cont .card .info .text {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
         /* Gaya navbar yang lebih menarik */
         .navbar {
             background-color: rgba(255, 255, 255, 0.8);
@@ -126,15 +207,712 @@
         .carousel-card img:hover {
             transform: scale(1.1);
         }
-                </style>
+
+        /* Personal Branding Styles */
+        .profile-section {
+            padding: 50px 0;
+            background-color: #f8f9fa;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .skills-section {
+            padding: 50px 0;
+            background-color: #fff;
+        }
+
+        .skill-card {
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-section {
+            padding: 50px 0;
+            background-color: #f8f9fa;
+        }
+
+        .social-icons a {
+            color: #333;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        /* Penyempurnaan tampilan umum */
+        :root {
+            --primary-color: #2d3436;
+            --accent-color: #0984e3;
+            --text-color: #2d3436;
+            --light-bg: #f5f6fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navbar yang lebih modern */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Header Jumbotron yang lebih menarik */
+        .header-jumbotron {
+            background: linear-gradient(135deg, #0984e3, #2d3436);
+            padding: 8rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-jumbotron::before {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border: 4px solid #fff;
+            box-shadow: 0 0 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Bagian Skills yang lebih modern */
+        .skill-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .skill-card h4 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Proyek carousel yang lebih profesional */
+        .carousel {
+            background-color: var(--light-bg);
+            padding: 3rem 0;
+        }
+
+        .carousel-card {
+            background: white;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .carousel-card img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Form feedback yang lebih elegan */
+        .feedback-section {
+            background: var(--light-bg);
+            padding: 4rem 0;
+        }
+
+        .feedback-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        /* footer {
+            background: var(--primary-color);
+            padding: 4rem 0 2rem;
+        } */
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Custom styling untuk memperindah tampilan */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6366f1, #4f46e5);
+            --secondary-gradient: linear-gradient(135deg, #f59e0b, #d97706);
+            --text-gradient: linear-gradient(135deg, #1e293b, #334155);
+        }
+
+        /* Efek glass morphism */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        /* Animasi hover yang lebih halus */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navbar yang lebih modern */
+        .modern-nav {
+            background: transparent;
+            backdrop-filter: none;
+            transition: all 0.3s ease;
+        }
+
+        .modern-nav.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Tambahkan padding-top pada hero section */
+#beranda {
+    padding-top: 4rem; /* Sesuaikan nilai ini jika diperlukan */
+}
+
+/* Update warna teks navbar saat di atas landing page */
+.nav-text-light {
+    color: white !important;
+}
+
+.nav-text-light:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+        /* Card design yang lebih modern */
+        .modern-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .modern-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Skill badges yang lebih menarik */
+        .skill-badge {
+            background: var(--secondary-gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            display: inline-block;
+        }
+
+        /* Button styling yang lebih modern */
+        .modern-button {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modern-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Timeline styling yang lebih menarik */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--primary-gradient);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -0.5rem;
+            top: 0;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: #6366f1;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Footer yang lebih modern */
+        .modern-footer {
+            background: var(--text-gradient);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        /* Animasi loading */
+        .loading-animation {
+            width: 3rem;
+            height: 3rem;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #6366f1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Proyek carousel yang lebih profesional */
+        .carousel {
+            background-color: var(--light-bg);
+            padding: 3rem 0;
+        }
+
+        .carousel-card {
+            background: white;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .carousel-card img {
+            height: 250px;
+            object-fit: cover;
+        }
+        
+
+        /* Foto Profil */
+        .cardg, .card1 {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+}
+
+.card:hover .overlay {
+    height: 50px;
+}
+
+.overlay-text {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.containerg {
+    height: auto;
+    width: auto;
+    max-height: 800px;
+    max-width: 1280px;
+    min-height: 600px;
+    min-width: 1000px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.card1-border, .borderg {
+    height: 369px;
+    width: 290px;
+    background: transparent;
+    border-radius: 10px;
+    transition: border 1s;
+    position: relative;
+}
+
+.card1-border:hover, .borderg:hover {
+    border: 1px solid #fff;
+}
+
+.card1-border {
+    height: 440px;
+}
+
+.big-card, .cardg {
+    height: 379px;
+    width: 300px;
+    background: #808080;
+    border-radius: 10px;
+    transition: background 0.8s;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card1 {
+    background: url("rikobgmerah.jpg") center center no-repeat;
+    background-size: 300px;
+}
+
+.card1:hover {
+    background: url("rikobgmerah.jpg") center center no-repeat;
+    background-size: 400px; /* Ukuran zoom yang lebih kecil */
+}
+
+.card1:hover h2 {
+    opacity: 1;
+}
+
+.card1:hover .fa {
+    opacity: 1;
+}
+
+h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #000000 !important;
+    margin: 20px;
+    opacity: 1 !important;
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.fa {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.card1-icons, .icons {
+    position: absolute;
+    fill: #fff;
+    color: #fff;
+    height: 130px;
+    top: 226px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card1-icons {
+    top: 295px;
+}
+
+.card1-icons:hover .fa, .icons:hover .fa {
+    transform: scale(1.025s);
+    transition: 1s;
+}
+
+        /* Add these new styles for carousel */
+        .card-animation-cont {
+            position: relative;
+            max-width: 900px;  /* Reduced from 1200px */
+            margin: 0 auto;
+            padding: 20px 40px;  /* Reduced horizontal padding */
+        }
+
+        .card-animation-cont .card {
+            height: 320px;  /* Reduced from 400px */
+            max-width: 800px;  /* Added max-width for better control */
+            margin: 10px auto;  /* Reduced margin */
+        }
+
+        .card-animation-cont .card img {
+            height: 200px;  /* Specific height for images */
+            object-fit: cover;
+        }
+
+        .card-animation-cont .card .info {
+            height: 65%;  /* Adjusted for new card height */
+            padding: 15px;  /* Reduced padding */
+        }
+
+        /* Custom arrow styling */
+        .card-animation-cont .slick-prev,
+        .card-animation-cont .slick-next {
+            width: 35px;  /* Reduced from 40px */
+            height: 35px;  /* Reduced from 40px */
+            background: #e67e22;
+            border-radius: 50%;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .card-animation-cont .slick-prev {
+            left: -5px;
+        }
+
+        .card-animation-cont .slick-next {
+            right: -5px;
+        }
+
+        .card-animation-cont .slick-prev:hover,
+        .card-animation-cont .slick-next:hover {
+            background: #d35400;
+            transform: scale(1.1);
+        }
+
+        .card-animation-cont .slick-prev:before,
+        .card-animation-cont .slick-next:before {
+            font-size: 18px;  /* Reduced from 20px */
+            color: white;
+            opacity: 1;
+        }
+
+        /* Dots styling */
+        .card-animation-cont .slick-dots {
+            bottom: -30px;  /* Reduced from -40px */
+        }
+
+        .card-animation-cont .slick-dots li button:before {
+            font-size: 10px;  /* Reduced from 12px */
+            color: #e67e22;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .card-animation-cont {
+                padding: 15px 20px;  /* Further reduced padding for mobile */
+                max-width: 100%;
+            }
+
+            .card-animation-cont .card {
+                height: 300px;  /* Slightly smaller for mobile */
+                margin: 5px auto;
+            }
+
+            .card-animation-cont .card img {
+                height: 180px;  /* Slightly smaller for mobile */
+            }
+
+            .card-animation-cont .card .info {
+                padding: 12px;
+            }
+
+            .card-animation-cont .slick-prev,
+            .card-animation-cont .slick-next {
+                display: none !important;
+            }
+        }
+
+        /* Certificate Card Styles */
+        .certificate-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: #6366f1;
+        }
+
+        .certificate-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .certificate-content {
+            flex: 1;
+        }
+
+        .certificate-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .certificate-desc {
+            color: #636e72;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .btn-outline-primary {
+            border-color: #6366f1;
+            color: #6366f1;
+            transition: all 0.3s ease;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #6366f1;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .certificate-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .certificate-icon {
+                margin: 0 auto 20px;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Add Slick Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CafeKu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Riko Rizky - Personal Portfolio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
     <link rel="icon" href="1694716131277.png" type="image/x-icon">
 
@@ -148,315 +926,353 @@
         src="https://kit.fontawesome.com/70c682a6d6.js"
         crossorigin="anonymous"
         ></script>
+
+    <!-- Tambahkan font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-social bg-transparent bg-light fonts fixed-top">
-        <!-- Tautan Logo atau Judul -->
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/"><h3>CafeKu</h3></a>
-            <!-- Tombol Toggle (untuk tampilan responsif pada perangkat kecil) -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Daftar Navigasi Utama -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.facebook.com/share/1B6SEkLcN1/"><i class="fab fa-facebook"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://twitter.com/sir_ikoo"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.instagram.com/sir_ikoo/"><i class="fab fa-instagram"></i></a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#beranda">Beranda <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#menu">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#tentang">Tentang</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#kontak">Kontak</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+<body class="bg-gray-50">
+    <!-- Loading Screen -->
     <div class="loading-screen">
         <div class="loader"></div>
     </div>
 
-    <div class="jumbotron jumbotron-fluid header-jumbotron" id="beranda">
-        <div class="container text-center mt-5">
-            <h1 class="display-4 typewriter fonts" id="welcome-text"></h1>
-            <p class="lead fade-in pfont">Nikmati suasana santai dan hidangan lezat kami.</p>
+    <!-- Navbar -->
+<nav id="navbar" class="fixed w-full z-50 top-0 left-0 transition-all duration-300 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a href="#" class="text-2xl font-bold text-white hover:text-orange-400 transition duration-300">Riko Rizky</a>
+            </div>
+
+            <!-- Navigation Links (center) -->
+            <div class="hidden md:flex space-x-8 justify-center flex-1 text-white">
+                <a href="#beranda" class="hover:text-orange-400 transition duration-300 relative group">
+                    Home
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#biodata" class="hover:text-orange-400 transition duration-300 relative group">
+                    About
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#project" class="hover:text-orange-400 transition duration-300 relative group">
+                    Projects
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#kontak" class="hover:text-orange-400 transition duration-300 relative group">
+                    Contact
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
+
+            <!-- Social Icons (right) -->
+            <div class="hidden md:flex items-center space-x-4 text-white">
+                <a href="https://github.com/RikoRizky" class="hover:text-orange-400 transition duration-300 transform hover:scale-110">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/sir_ikoo/" class="hover:text-orange-400 transition duration-300 transform hover:scale-110">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="https://www.facebook.com/share/1B6SEkLcN1/" class="hover:text-orange-400 transition duration-300 transform hover:scale-110">
+                    <i class="fab fa-facebook text-xl"></i>
+                </a>
+                <a href="https://x.com/sir_ikoo" class="hover:text-orange-400 transition duration-300 transform hover:scale-110">
+                    <i class="fab fa-x-twitter text-xl"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-button" class="text-white focus:outline-none transform hover:scale-110 transition duration-300">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
     </div>
 
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 py-4 space-y-4 text-center bg-black/90 backdrop-blur-sm rounded-b-lg shadow-lg">
+        <a href="#beranda" class="block text-lg font-medium text-white hover:text-orange-400 transition duration-300">Home</a>
+        <a href="#biodata" class="block text-lg font-medium text-white hover:text-orange-400 transition duration-300">About</a>
+        <a href="#project" class="block text-lg font-medium text-white hover:text-orange-400 transition duration-300">Projects</a>
+        <a href="#kontak" class="block text-lg font-medium text-white hover:text-orange-400 transition duration-300">Contact</a>
+
+    <!-- Social Icons -->
+    <div class="flex justify-center space-x-6 pt-3">
+        <a href="https://github.com/RikoRizky" class="text-white hover:text-orange-400 transition duration-300 transform hover:scale-110">
+            <i class="fab fa-github"></i>
+        </a>
+            <a href="https://www.instagram.com/sir_ikoo/" class="text-white hover:text-orange-400 transition duration-300 transform hover:scale-110">
+            <i class="fab fa-instagram text-xl"></i>
+        </a>
+            <a href="https://www.facebook.com/share/1B6SEkLcN1/" class="text-white hover:text-orange-400 transition duration-300 transform hover:scale-110">
+            <i class="fab fa-facebook text-xl"></i>
+        </a>
+            <a href="https://x.com/sir_ikoo" class="text-white hover:text-orange-400 transition duration-300 transform hover:scale-110">
+            <i class="fab fa-x-twitter text-xl"></i>
+        </a>
+    </div>
+</div>
+</nav>
+
+
+    <div class="relative h-screen w-full" id="beranda">
+        <div class="absolute inset-0">
+            <!-- Tampilan Desktop -->
+            <img src="LandingPage.png" alt="Landing Page" class="hidden md:block absolute inset-0 w-full h-full object-cover">
+            <!-- Tampilan Mobile -->
+            <img src="Mobile.png" alt="Landing Page Mobile" class="block md:hidden absolute inset-0 w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-white text-center z-10 px-4">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">Riko Rizky</h1>
+                <p class="text-xl md:text-2xl mb-8 animate-fade-in-up">Turning ideas into interactive websites</p>
+                <div class="flex justify-center space-x-4 animate-fade-in-up">
+                    <a href="#biodata" class="px-8 py-3 bg-orange-400 text-white rounded-full hover:bg-orange-500 transition duration-300 transform hover:scale-105">
+                        About Me
+                    </a>
+                    <a href="#project" class="px-8 py-3 border-2 border-white text-warning rounded-full hover:bg-white hover:text-black transition duration-300 transform hover:scale-105">
+                        My Projects
+                    </a>
+            </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#biodata" class="text-white text-4xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="w-full p-3 mt-10" id="biodata">
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs scroll-animation fade-in-up" id="biodataTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab">Profil & Pendidikan</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="experience-tab" data-bs-toggle="tab" data-bs-target="#experience" type="button" role="tab">Pengalaman Kerja</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="skills-tab" data-bs-toggle="tab" data-bs-target="#skills" type="button" role="tab">Sertifikat & Pelatihan</button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="biodataTabsContent">
+            <!-- Profile & Education Tab -->
+            <div class="tab-pane fade show active" id="profile" role="tabpanel">
+                <div class="profile-card scroll-animation fade-in-left">
+                    <div class="profile-header">
+                        <img src="rikobgmerah.jpg" alt="Profile" class="profile-image">
+                        <div class="profile-info">
+                            <h3>Riko Rizky Baswara</h3>
+                            <p>Turning ideas into interactive websites</p>
+                        </div>
+                    </div>
+                    <div class="profile-content">                        
+                        <h4 class="mt-4 mb-3">Pendidikan Terakhir</h4>
+                        <!-- <div class="experience-card">
+                            <div class="experience-header">
+                                <div>
+                                    <h5 class="experience-title">Sekolah Dasar</h5>
+                                    <p class="experience-company">SDN Pelandakan 02 Kota Cirebon</p>
+                                </div>
+                                <span class="experience-date">2013 - 2019</span>
+                            </div>
+                            <p class="experience-description">Menempuh pendidikan dasar di SDN Pelandakan 02 kota Cirebon.</p>
+                        </div>
+
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div>
+                                    <h5 class="experience-title">Sekolah Menengah Pertama</h5>
+                                    <p class="experience-company">SMPN 02 Kota Cirebon</p>
+                                </div>
+                                <span class="experience-date">2019 - 2022</span>
+                            </div>
+                            <p class="experience-description">Menempuh pendidikan menengah pertama di SMPN 02 Kota Cirebon.</p>
+                        </div> -->
+
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div>
+                                    <h5 class="experience-title">Sekolah Menengah Kejuruan</h5>
+                                    <p class="experience-company">SMK Informatika Al-Irysad Al-Islamiyyah Kota Cirebon</p>
+                                </div>
+                                <span class="experience-date">2022 - 2025</span>
+                            </div>
+                            <p class="experience-description">Fokus pada jurusan Rekayasa Perangkat Lunak, mempelajari dasar-dasar pemrograman, pengembangan web, dan pengelolaan basis data.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Tab -->
+            <div class="tab-pane fade" id="experience" role="tabpanel">
+                <div class="scroll-animation fade-in-up">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <h5 class="experience-title">Praktik Kerja Lapangan</h5>
+                                <p class="experience-company">Badan Pusat Statistik (BPS) Kota Cirebon</p>
+                            </div>
+                            <span class="experience-date">2024</span>
+                        </div>
+                        <p class="experience-description">
+                            - Mengembangkan website pengelolaan data untuk Kelurahan Kesambi<br>
+                            - Membuat infografis untuk visualisasi data<br>
+                            - Mengolah dan menganalisis data menggunakan Microsoft Excel<br>
+                            - Berkolaborasi dengan tim untuk menyelesaikan proyek
+                        </p>
+                    </div>
+
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <h5 class="experience-title">Pengalaman Organisasi</h5>
+                                <p class="experience-company">SMK Informatika Al-Irysad Al-Islamiyyah</p>
+                            </div>
+                            <span class="experience-date">2023 - 2024</span>
+                        </div>
+                        <p class="experience-description">
+                            <strong>Ketua Organisasi:</strong><br>
+                            - Palang Merah Remaja (PMR)<br>
+                            - Ikatan Remaja Masjid Al-Ishlah (IRMAIS)<br><br>
+                            <strong>Anggota Organisasi:</strong><br>
+                            - Osis<br>
+                            - Pramuka<br>
+                            - Basket
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificates Tab -->
+            <div class="tab-pane fade" id="skills" role="tabpanel">
+                <div class="certificate-grid scroll-animation fade-in-up">
+                    <div class="certificate-card">
+                        <div class="certificate-content">
+                            <h5 class="certificate-title">Sertifikat PKL</h5>
+                            <p class="certificate-issuer">Badan Pusat Statistik Kota Cirebon</p>
+                            <p class="certificate-date">2024</p>
+                            <a href="https://drive.google.com/file/d/1y3VN-N-0SqDUHNsEDsHt1PVmCTZDOTvk/view?usp=drivesdk" class="btn btn-outline-primary btn-sm mt-2" target="_blank">
+                                <i class="fa-solid fa-eye me-2"></i>Lihat Sertifikat
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="certificate-card">
+                        <div class="certificate-content">
+                            <h5 class="certificate-title">Sertifikat UKK</h5>
+                            <p class="certificate-issuer">Uji Kompetensi Keahlian RPL</p>
+                            <p class="certificate-date">2024</p>
+                            <a href="https://drive.google.com/file/d/1XY4nEWlOES9m9tWEgYsDiRC1YbGAQbeO/view?usp=drivesdk" class="btn btn-outline-primary btn-sm mt-2" target="_blank">
+                                <i class="fa-solid fa-eye me-2"></i>Lihat Sertifikat
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="certificate-card">
+                        <div class="certificate-content">
+                            <h5 class="certificate-title">Sertifikat Karier.mu</h5>
+                            <p class="certificate-issuer">Menjadi Talenta Siap Bisnis</p>
+                            <p class="certificate-date">2024</p>
+                            <a href="https://drive.google.com/file/d/1hc3UhB86SjkcyUJMYuN7oXKLtHxiYmWF/view?usp=drivesdk" class="btn btn-outline-primary btn-sm mt-2" target="_blank">
+                                <i class="fa-solid fa-eye me-2"></i>Lihat Sertifikat
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="certificate-card">
+                        <div class="certificate-content">
+                            <h5 class="certificate-title">Sertifikat Karier.mu</h5>
+                            <p class="certificate-issuer">Kelas Persiapan Kerja</p>
+                            <p class="certificate-date">2024</p>
+                            <a href="https://drive.google.com/file/d/1hb91N-07A9gE-jXKM2ubNV0v_HxtaF75/view?usp=drivesdk" class="btn btn-outline-primary btn-sm mt-2" target="_blank">
+                                <i class="fa-solid fa-eye me-2"></i>Lihat Sertifikat
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="certificate-card">
+                        <div class="certificate-content">
+                            <h5 class="certificate-title">Sertifikat Partisipasi</h5>
+                            <p class="certificate-issuer">Kunjungan Indsutri GAMELAB Indonesia</p>
+                            <p class="certificate-date">2023</p>
+                            <a href="https://drive.google.com/file/d/1hdLfWs4pNjjCx3a6fEe50F0vT1R_DTYT/view?usp=drivesdk" class="btn btn-outline-primary btn-sm mt-2" target="_blank">
+                                <i class="fa-solid fa-eye me-2"></i>Lihat Sertifikat
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="project" class="scroll-animation fade-in-up">
+        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12 mb-4 pt-4">Sebagian Aplikasi Saya</h2>
+    <hr>
     <div class="card-animation-cont pt-4">
-        <!-- Duplicate the following div to add cards -->
-        <div class="card">
-            <img src="makanan.jpg" alt=""/>
+        <a href="https://rikorizky.github.io/mycafe.github.io/">
+                <div class="card scroll-animation stagger-animation">
+            <img src="mycafe.png" alt=""/>
             <div class="info">
-                <strong>Makanan Berat</strong>
-                <span class="sub-title">Tentang makanan Berat</span>
-                <hr />
+                    <strong>My Cafe</strong>
+                    <span class="sub-title">Website tentang Cafe</span>
+                <hr/>
                 <div class="hide-info">
                     <span class="text">
-                        Makanan berat adalah jenis hidangan yang seringkali memberikan banyak kalori, protein, lemak, dan karbohidrat.
+                        Ini adalah website yang saya buat ketika saya masih berada di kelas 10. Website menjadi awal mula proses saya untuk berkembang di dunia IT. 
                     </span>
                 </div>
             </div>
         </div>
+    </a>
 
-        <div class="card">
-            <img src="cemilan.jpg" alt="" />
+        <a href="https://github.com/MuhammadRaffaFadellah/sista-bijak">
+                <div class="card scroll-animation stagger-animation">
+            <img src="sistabijak.png" alt="" />
             <div class="info">
-                <strong>Makanan Ringan</strong>
-                <span class="sub-title">Tentang Makanan Ringan</span>
-                <hr />
+                <strong>Sista Bijak</strong>
+                <span class="sub-title">Kesambi Juara Dalam Angka</span>
+                <hr/>
                 <div class="hide-info">
                     <span class="text">
-                        Makanan ringan adalah hidangan yang biasanya memiliki rasa manis, seringkali digunakan sebagai hidangan penutup atau camilan.
+                        Ini adalah tugas yang saya dapatkan dari tempat PKL saya, di Badan Pusat Statistik Kota Cirebon. Saya di tugaskan untuk membuat website pengelolahan data yang nantinya akan di gunakan oleh Kelurahan Kesambi. Website ini berfungsi untuk mengelolahan data penduduk.
                     </span>
                 </div>
             </div>
         </div>
+        </a>
 
-        <div class="card">
-            <img src="minuman.jpg" alt="" />
-            <div class="info">
-                <strong>Minuman</strong>
-                <span class="sub-title">Tentang Minuman</span>
-                <hr />
-                <div class="hide-info">
-                    <span class="text">
-                        Minuman adalah cairan yang menyegarkan atau memuaskan dahaga. Ada yang panas seperti teh atau kopi, memberikan hangat dan semangat.
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<br id="menu">
-
-<div class="container-fluid">
-    <h1>
-        Daftar Menu
-        </h1>
-        <hr>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"
-        />
-        <script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-
-        <script src="new.js"></script>
-
-        <div class="carousel lahan">
-
-        <div class="carousel-card">
-            <img src="28fe4257-3887-4bda-b842-1fc596e04b36.jpeg" />
-            <p>Es Buah</p>
-        </div>
-        <div class="carousel-card">
-            <img src="Seblak illustration Indonesian food with cartoon style.jpeg" />
-            <p>Seblak</p>
-    </div>
-        <div class="carousel-card">
-            <img src="Pangsit mie bakso illustration Indonesian food with cartoon style.jpeg" />
-            <p>Mie Ayam Baso Pangsit</p>
-        </div>
-        <div class="carousel-card">
-            <img src="Pangsit goreng illustration Indonesian food with cartoon style.jpeg"/>
-            <p>Pangsit Goreng</p>
-        </div>
-            <div class="carousel-card">
-                <img src="Tahu bakso illustration Indonesian food with cartoon style.jpeg"/>
-                <p>Tahu Bakso</p>
-            </div>
-        <div class="carousel-card">
-            <img src="Illustration De Pempek Palembang Cuisine Indonésienne Avec Style Cartoon _ Vecteur Premium.jpeg" />
-            <p>Pempek </p>
-        </div>
-            <div class="carousel-card">
-                <img src="Lumpia goreng illustration Indonesian food with cartoon style.jpeg" />
-                <p>Lumpia Goreng</p>
-            </div>
-        <div class="carousel-card">
-            <img src="Nasi lalapan ayam illustration Indonesian food with cartoon style.jpeg"/>
-            <p>Nasi Lalapan Ayam Goreng</p>
-        </div>
-        <div class="carousel-card">
-            <img src="Mie aceh illustration Indonesian food with cartoon style.jpeg"/>
-            <p>Mie Aceh</p>
-        </div>
-        <div class="carousel-card">
-            <img src="Premium Vector _ Nasi pecel illustration indonesian food with cartoon style.jpeg"/>
-            <p>Nasi Pecel</p>
-        </div>
-        <div class="carousel-card">
-            <img src="Premium Vector _ Sempol ayam illustration indonesian food with cartoon style.jpeg"/>
-            <p>Sempol</p>
-        </div>
-        <div class="carousel-card">
-            <img src="Premium Vector _ Pie susu illustration indonesian food with cartoon style.jpeg"/>
-            <p>Pie Susu</p>
-        </div>
-        <div class="carousel-card">
-            <img src="Premium Vector _ Kembang goyang illustration indonesian food with cartoon style.jpeg"/>
-            <p>Kue Kembang Goyang</p>
-        </div>
-        <div class="carousel-card">
-            <img src="Premium Vector _ Kue apem illustration indonesian food with cartoon style.jpeg"/>
-            <p>Kue Apem</p>
-        </div>
-        <div class="carousel-card">
-            <img src="Premium Photo _ A cup of tea with a red straw and a lemon on the side_.jpeg"/>
-        <p>Lemon Tea</p>
-        </div>
-        <div class="carousel-card">
-            <img src="asasa.jpeg"/>
-            <p>Es Cendol</p>
-        </div>
-        </div>
-    </div>
-
-    <!-- <div class="container mt-5 mb-5">
-        <div class="row">
-            <div class="col-12 col-lg-4 col-md-4">
-                <div class="card shadow">
-                    <div class="card-body">
-                        <h4 class="display-6 text-center mb-4">Menu</h4>
-                        <p>
-                            - Nasi goreng biasa/seafood
-                        </p>
-                        <p>
-                            - Nasi putih
-                        </p>
-                        <p>
-                            - Bebek goreng/bakar
-                        </p>
-                        <p>
-                            - Ayam goreng/bakar
-                        </p>
-                        <p>
-                            - Ikan goreng/bakar
-                        </p>
-                        <p>
-                            - Cumi tepung 
-                        </p>
-                        <p>
-                            - Mie goreng/rebus
-                        </p>
-                        <p>
-                            - Sambal
-                        </p>
+        <a href="https://rikorizky.github.io/dibuka.github.oi">
+                <div class="card scroll-animation stagger-animation">
+                <img src="ultah.png" alt="" />
+                <div class="info">
+                    <strong>Ulang Tahun</strong>
+                    <span class="sub-title">Website Ucapan Ulang Tahun</span>
+                    <hr/>
+                    <div class="hide-info">
+                        <span class="text">
+                            Website ini dibuat pada saat saya masih berada di kelas 10, untuk mengucapkan selamat ulang tahun kepada teman saya.
+                        </span>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-4 col-md-4">
-                <div class="card shadow">
-                    <div class="card-body">
-                        <h4 class="display-6 text-center mb-4">Menu</h4>
-                        <p>
-                            - Coklat
-                        </p>
-                        <p>
-                            - Permen
-                        </p>
-                        <p>
-                            - Ice Cream
-                        </p>
-                        <p>
-                            - Kue
-                        </p>
-                        <p>
-                            -Popcorn
-                        </p>
-                        <p>
-                            - Donat
-                        </p>
-                        <p>
-                            - Lolipop
-                        </p>
-                        <p>
-                            - Croissant
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4 col-md-4">
-                <div class="card shadow">
-                    <div class="card-body">
-                        <h4 class="display-6 text-center mb-4">Menu</h4>
-                        <p>
-                            -Jus Sayuran
-                        </p>
-                        <p>
-                            - Jus Buah
-                        </p>
-                        <p>
-                            - Kopi
-                        </p>
-                        <p>
-                            - Teh manis panas/dingin
-                        </p>
-                        <p>
-                            - Milkshake
-                        </p>
-                        <p>
-                            - Cappucino cincau
-                        </p>
-                        <p>
-                            - Air mineral
-                        </p>
-                        <p>
-                            - Es campur
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    <div class="container mt-5" id="tentang">
-        <div class="row">
-            <div class="col-12 col-md-5">
-                <img src="cafe.jpeg" alt="" class="img rounded img-fluid">
-            </div>
-            <div class="col-12 col-md-7">
-                <b class="display-5">Tentang Cafe</b>
-                <p class="mt-3">
-                    Cafe ini di dirikan sejak lama dan masih bertahan hingga sekarang. Semua resep dan menu di sini masih di pertahankan hingga sekarang.
-                </p>
-                <p>
-                    Dengan perpaduan antara cita rasa yang autentik dan inovasi kuliner, menu kami dirancang untuk memanjakan lidah Anda. Kami menawarkan berbagai hidangan yang menggoda, mulai dari sarapan lezat, hidangan penutup manis, hingga makan malam yang mengesankan. Setiap hidangan kami disiapkan dengan cinta dan menggunakan bahan-bahan berkualitas tinggi.
-                </p>
-                <p>
-                    Untuk kenyamanan kami berkomitmen untuk memberikan pengalaman pelanggan yang tak terlupakan. Dari suasana yang hangat hingga pelayanan ramah dari tim kami, kami ingin membuat Anda merasa seperti di rumah sendiri setiap kali berkunjung. Kami selalu berusaha untuk memenuhi kebutuhan Anda dengan sebaik-baiknya.
-                </p>
-                <p>
-                    Cafe kami menawarkan ruang santai yang sempurna untuk berkumpul bersama teman-teman, keluarga, atau bahkan untuk pertemuan bisnis santai. Interior kami dirancang untuk menciptakan atmosfer yang mengundang, dengan dekorasi yang menarik dan pencahayaan yang nyaman.
-                </p>
-            </div>
-        </div>
+        </a>
     </div>
+                    </div>
 
-    <div class="container mt-5 mb-5 py-5">
-        <div class="card shadow">
-            <div class="card-body">
-                <h4 class="display-6"><strong>Berikan Saran, Masukan dan bintang</strong></h4>
+    <div class="containerg scroll-animation fade-in-up">
+        <div class="col-md-11">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                <h4 class="display-6"><strong>Beri Saran dan Nilai Portfolio Ini</strong></h4>
                 <form id="saranForm" onsubmit="sendEmail(event)">
                     <div class="toast" id="pesanNotifikasi" data-autohide="true" data-delay="3000" role="alert" aria-live="assertive" aria-atomic="true">
                         <div class="toast-header">
@@ -814,32 +1630,59 @@
         </div>
     </div>
 
-    <footer class="bg-dark text-light pt-5">
+    <footer class="footer-modern scroll-animation fade-in-up" id="kontak">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <h4>Informasi Singkat</h4>
-                    <hr>
-                    <p>Cafe ini di dirikan di kota antah berantah yang berasal dari imajinasi pembuat website ini. Di dirikan pada tanggal 15 September 2023. Terima kasih atas kunjungannya semoga harimu menyenangkan.</p>
+                <div class="col-md-4 mb-4">
+                    <h3 class="text-gradient mb-4">Riko Rizky</h3>
+                    <p class="text-light">Passionate web developer focused on creating beautiful and functional web experiences.</p>
+                    <div class="social-icons mt-4">
+                        <a href="https://github.com/RikoRizky" class="hover-scale" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://x.com/sir_ikoo" class="hover-scale" target="_blank">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://www.facebook.com/riko.basawara" class="hover-scale" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sir_ikoo" class="hover-scale" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                 </div>
-                
-                <div class="col-md-4 ms-auto" id="kontak">
-                    <h4>Kontak</h4>
-                    <hr>
-                    <p>Email  : rikorizky20@gmail.com</p>
-                    <p>No Telpon    : 081223209190</p>
-                    <p>Instagram : sir_ikoo</p>
-                    <div class="socialButton mt-3">
-                        <a href="https://www.instagram.com/sir_ikoo/"><i class="bx bxl-instagram-alt"></i></a>
-                        <a href="https://www.facebook.com/share/1B6SEkLcN1/"><i class="bx bxl-facebook"></i></a>
-                        <a href="https://twitter.com/sir_ikoo"><i class="bx bxl-twitter"></i></a>
-                        <a href="https://discord.com/channels/@me"><i class="bx bxl-discord-alt"></i></a>
                     </div>
+                <div class="col-md-4 mb-4">
+                    <h4 class="text-gradient mb-4">Quick Links</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#beranda" class="text-light text-decoration-none hover-scale d-block mb-2">Home</a></li>
+                        <li><a href="#biodata" class="text-light text-decoration-none hover-scale d-block mb-2">About</a></li>
+                        <li><a href="#project" class="text-light text-decoration-none hover-scale d-block mb-2">Projects</a></li>
+                        <li><a href="#kontak" class="text-light text-decoration-none hover-scale d-block mb-2">Contact</a></li>
+                    </ul>
                 </div>
+                <div class="col-md-4 mb-4">
+                    <h4 class="text-gradient mb-4">Contact Info</h4>
+                    <ul class="list-unstyled footer-contact">
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="fas fa-envelope me-3"></i>
+                            <a href="mailto:rikorizky@gmail.com" class="text-light text-decoration-none hover-scale">rikorizky20@gmail.com</a>
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <i class="fas fa-phone me-3"></i>
+                            <a href="tel:+6281234567890" class="text-light text-decoration-none hover-scale">+62 812-2320-9190</a>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <i class="fas fa-map-marker-alt me-3"></i>
+                            <span class="text-light">Cirebon, Indonesia</span>
+                        </li>
+                    </ul>
             </div>
-            <hr>
-            <div class="text-center text-warning puter">
-                <p>Copyright &copy; <span id="current-year"></span> - RIKO RIZKY All Rights Reserved.</p>
+            </div>
+            <hr class="border-light my-4">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="text-warning mb-0">&copy; <span id="current-year"></span> - Riko Rizky. All Rights Reserved.</p>
+                </div>
             </div>
         </div>
     </footer>
@@ -938,26 +1781,66 @@
         document.getElementById('current-year').textContent = currentYear;
     </script>
 
+    <!-- Script Scroll Navbar -->
 <script>
-    function updateJumbotronBackground() {
-        const jumbotron = document.querySelector('.header-jumbotron');
-        const currentHour = new Date().getHours();
-
-        if (currentHour >= 6 && currentHour < 11) {
-            // Pagi (6 AM - 11 PM)
-            jumbotron.style.backgroundImage = "url('modepagi.png')";
-        } else if (currentHour >= 11 && currentHour < 18) {
-            // Siang (11 PM - 6 PM)
-            jumbotron.style.backgroundImage = "url('landing.png')";
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) {
+            navbar.classList.add("navbar-scrolled");
         } else {
-            // Malam (6 PM - 6 AM)
-            jumbotron.style.backgroundImage = "url('modemalam.png')";
+            navbar.classList.remove("navbar-scrolled");
+        }
+    });
+
+    // Toggle mobile menu
+    const menuBtn = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
+</script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    var nav = document.querySelector('nav');
+    var navLinks = document.querySelectorAll('.nav-link');
+    var navBrand = document.querySelector('.nav-brand');
+    var socialIcons = document.querySelectorAll('.social-icon');
+    
+    function updateNavbar() {
+        if (window.scrollY > 100) {
+            nav.classList.add('scrolled');
+            // Ubah warna teks menjadi gelap saat di-scroll
+            navLinks.forEach(link => {
+                link.classList.remove('nav-text-light');
+                link.classList.add('text-gray-700');
+            });
+            socialIcons.forEach(icon => {
+                icon.classList.remove('nav-text-light');
+                icon.classList.add('text-gray-600');
+            });
+        } else {
+            nav.classList.remove('scrolled');
+            // Kembalikan warna teks menjadi putih saat di atas
+            navLinks.forEach(link => {
+                link.classList.add('nav-text-light');
+                link.classList.remove('text-gray-700');
+            });
+            socialIcons.forEach(icon => {
+                icon.classList.add('nav-text-light');
+                icon.classList.remove('text-gray-600');
+            });
         }
     }
 
     // Panggil fungsi saat halaman dimuat
-    window.onload = updateJumbotronBackground;
-</script>
+    updateNavbar();
+    
+    // Panggil fungsi saat di-scroll
+    window.addEventListener('scroll', updateNavbar);
+});
+    </script>
 
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
@@ -1071,8 +1954,113 @@ document.addEventListener('DOMContentLoaded', function() {
             form.addEventListener('submit', sendEmail);
         }
     </script>
-    <div class="order-badge" onclick="window.location.href='pesan.html'">
-        <i class="fas fa-utensils me-2"></i>Pesan Menu
-    </div>
+
+    <!-- Add this script before closing body tag -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var $carousel = $('.card-animation-cont').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false
+                        }
+                    }
+                ]
+            });
+
+            // Pause carousel when clicking on a card
+            $('.card').on('click', function(e) {
+                // Only prevent default and pause if clicking on the card image or info section
+                if ($(e.target).closest('.card img').length || $(e.target).closest('.card .info').length) {
+                    e.preventDefault();
+                    $carousel.slick('slickPause');
+                    $(this).addClass('active');
+                }
+            });
+
+            // Resume autoplay when clicking outside of cards
+            $(document).on('click', function(e) {
+                // Only resume if clicking outside of cards and not on any form elements
+                if (!$(e.target).closest('.card').length && 
+                    !$(e.target).closest('form').length && 
+                    !$(e.target).closest('.rating').length) {
+                    $carousel.slick('slickPlay');
+                    $('.card').removeClass('active');
+                }
+            });
+        });
+    </script>
+
+    <style>
+        /* Add active state styling */
+        .card-animation-cont .card.active {
+            box-shadow: 0 5px 20px rgba(230, 126, 34, 0.3);
+            transform: translateY(-5px);
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ratingInputs = document.querySelectorAll('.rating input[type="radio"]');
+            const emoji = document.querySelector('.emoji');
+
+            ratingInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    const rating = this.value;
+                    emoji.style.transform = `translateY(-${(rating - 0) * 100}px)`;
+                });
+            });
+        });
+    </script>
+
+    <script>
+    // Unified Loading Screen and Navigation Scripts
+    document.addEventListener('DOMContentLoaded', function() {
+        // Loading Screen
+        const loadingScreen = document.querySelector('.loading-screen');
+        if (loadingScreen) {
+            window.addEventListener('load', function() {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    // Initialize scroll animations after loading
+                    initScrollAnimations();
+                }, 500);
+            });
+        }
+
+        // Rest of your existing initialization code...
+    });
+
+    // Scroll Animation Function
+    function initScrollAnimations() {
+        const animatedElements = document.querySelectorAll('.scroll-animation');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+    }
+    </script>
 </body>
 </html>
