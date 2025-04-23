@@ -904,6 +904,9 @@ h2 {
     <!-- Add Slick Carousel CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    
+    <!-- Add SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -1072,6 +1075,11 @@ h2 {
                         <div class="profile-info">
                             <h3>Riko Rizky Baswara</h3>
                             <p>Portofolio ini bukan sekadar hasil, tapi perjalanan panjang yang penuh makna.</p>
+                            <div class="personal-info mt-3">
+                                <p><i class="fas fa-map-marker-alt me-2"></i> Negara : Indoneisa</p>
+                                <p><i class="fas fa-calendar-alt me-2"></i> Tanggal Lahir: 26 November 2006</p>
+                                <p><i class="fas fa-home me-2"></i> Alamat: Bumi Arumsari, Jalan Kruing II No.45, Cirebon Girang.</p>
+                            </div>
                         </div>
                     </div>
                     <div class="profile-content">                        
@@ -1243,7 +1251,7 @@ h2 {
                 <hr/>
                 <div class="hide-info">
                     <span class="text">
-                        Ini adalah tugas yang saya dapatkan dari tempat PKL saya, di Badan Pusat Statistik Kota Cirebon. Saya di tugaskan untuk membuat website pengelolahan data yang nantinya akan di gunakan oleh Kelurahan Kesambi. Website ini berfungsi untuk mengelolahan data penduduk.
+                        Website pengelolaan data penduduk untuk Kelurahan Kesambi, dikembangkan selama PKL di BPS Kota Cirebon. Dirancang untuk mempermudah pencatatan dan manajemen data warga secara efisien.
                     </span>
                 </div>
             </div>
@@ -1266,7 +1274,7 @@ h2 {
             </div>
         </a>
     </div>
-                    </div>
+</div>
 
     <div class="containerg scroll-animation fade-in-up">
         <div class="col-md-11">
@@ -1275,7 +1283,7 @@ h2 {
                 <h4 class="display-6"><strong>Beri Saran dan Nilai Portfolio Ini</strong></h4>
                 <form id="saranForm" onsubmit="sendEmail(event)">
                     <div class="toast" id="pesanNotifikasi" data-autohide="true" data-delay="3000" role="alert" aria-live="assertive" aria-atomic="true">
-                        <div class="toast-header">
+                        <!-- <div class="toast-header">
                             <strong class="mr-auto">Notifikasi</strong>
                             <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -1283,7 +1291,7 @@ h2 {
                         </div>
                         <div class="toast-body">    
                             Pesan Anda telah berhasil terkirim.
-                        </div>
+                        </div> -->
                     </div>
                     <div class="row">
                         <div class="col-md-8">
@@ -1691,6 +1699,7 @@ h2 {
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -1761,15 +1770,28 @@ h2 {
     // Script ketiga untuk menangani pengiriman formulir dan menampilkan notifikasi toast
     document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById("saranForm");
-        const toast = new bootstrap.Toast(document.getElementById("pesanNotifikasi"));
 
         form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        // Simulasi pengiriman pesan (Anda dapat menggantinya dengan kode pengiriman sesungguhnya)
-        setTimeout(function () {
-            toast.show();
-            form.reset(); // Untuk mereset formulir setelah pesan terkirim
-        }, 1000);
+            e.preventDefault();
+            // Simulasi pengiriman pesan (Anda dapat menggantinya dengan kode pengiriman sesungguhnya)
+            setTimeout(function () {
+                Swal.fire({
+                    title: 'Berhasil!',
+                    text: 'Pesan Anda telah berhasil terkirim.',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#e67e22',
+                    timer: 3000,
+                    timerProgressBar: true,
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+                form.reset(); // Untuk mereset formulir setelah pesan terkirim
+            }, 1000);
         });
     });
     </script>
