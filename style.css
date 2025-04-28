@@ -66,7 +66,7 @@ section {
 }
 
 .navbar-social .navbar-nav .nav-link:hover {
-    color: #007bff;
+    color: #f97316;
 }
 
 footer {
@@ -1491,7 +1491,7 @@ p {
     font-size: 1.18em;
     font-weight: bold;
     opacity: 0;
-    transform: translateX(-18px) scale(0.85);
+    transform: translateX(18px) scale(0.85);
     transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1) 0.08s, filter 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.3s cubic-bezier(0.4,0,0.2,1) 0.08s;
     filter: drop-shadow(0 0 3px #f97316aa);
     pointer-events: none;
