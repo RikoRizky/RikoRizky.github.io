@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <style>
+            .lahan{
+            font-family: sans-serif;
+            background-color: black;
+            box-sizing: border-box;
+            display: flex;
+            }
+            
+            .carousel {
+            width: 100%;
+            padding: 20px;
+            background-color: rgb(48, 48, 48);
+            border-radius: 25px;
+            }
+            .carousel-card {
+            width: 400px;
+            padding: 20px;
+            margin: 0 10px;
+            border: 2px solid white;
+            border-radius: 25px;
+            background-color: rgb(255, 255, 255, 0.3);
+            color: white;
+            }
+            .slick-slide img {
+            width: 100%;
+            height: 300px;
+            }
+            
+            /* Customize the dots container */
+            .slick-dots {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            }
+            
+            /* Customize the individual dots */
+            .slick-dots li {
+            margin: 0 5px;
+            list-style: none;
+            }
+            
+            .slick-dots li button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: black;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            }
+            /* Remove the numbers next to the dots */
+            .slick-dots li button {
+            font-size: 0;
+            line-height: 0;
+            }
+            
+            /* Style the active dot */
+            .slick-dots li.slick-active button {
+            background-color: white;
+            }
+        nav {
+        transition: background-color 0.3s ease-in-out;
+        }
+
+        .bg-dark.shadow {
+        background-color: #000 !important;
+        }
+
+        /* Tambahkan efek hover pada kartu */
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h2 {
+            color: #000000 !important;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px;
+            opacity: 1 !important;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card:hover h2 {
+            opacity: 1 !important;
+            color: #000000 !important;
+        }
+
+        .card-animation-cont h2 {
+            color: #000000 !important;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 20px 0;
+            opacity: 1 !important;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-animation-cont {
+            padding: 2rem 0;
+        }
+
+        .card-animation-cont .card {
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-animation-cont .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-animation-cont .card .info {
+            padding: 1rem;
+        }
+
+        .card-animation-cont .card .info strong {
+            display: block;
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-animation-cont .card .info .sub-title {
+            display: block;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .card-animation-cont .card .info hr {
+            margin: 1rem 0;
+            border: none;
+            border-top: 1px solid #eee;
+        }
+
+        .card-animation-cont .card .info .hide-info {
+            display: none;
+        }
+
+        .card-animation-cont .card:hover .hide-info {
+            display: block;
+        }
+
+        .card-animation-cont .card .info .text {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Gaya navbar yang lebih menarik */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .navbar-nav .nav-link {
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+        }
+
+        /* Gaya untuk jumbotron */
+        .header-jumbotron {
+            position: relative;
+            min-height: 100vh;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .header-jumbotron::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .header-jumbotron .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Gaya untuk carousel */
+        .carousel-card img {
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .carousel-card img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Personal Branding Styles */
+        .profile-section {
+            padding: 50px 0;
+            background-color: #f8f9fa;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .skills-section {
+            padding: 50px 0;
+            background-color: #fff;
+        }
+
+        .skill-card {
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-section {
+            padding: 50px 0;
+            background-color: #f8f9fa;
+        }
+
+        .social-icons a {
+            color: #333;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        /* Penyempurnaan tampilan umum */
+        :root {
+            --primary-color: #2d3436;
+            --accent-color: #0984e3;
+            --text-color: #2d3436;
+            --light-bg: #f5f6fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navbar yang lebih modern */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Header Jumbotron yang lebih menarik */
+        .header-jumbotron {
+            background: linear-gradient(135deg, #0984e3, #2d3436);
+            padding: 8rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-jumbotron::before {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border: 4px solid #fff;
+            box-shadow: 0 0 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Bagian Skills yang lebih modern */
+        .skill-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .skill-card h4 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Proyek carousel yang lebih profesional */
+        .carousel {
+            background-color: var(--light-bg);
+            padding: 3rem 0;
+        }
+
+        .carousel-card {
+            background: white;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .carousel-card img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Form feedback yang lebih elegan */
+        .feedback-section {
+            background: var(--light-bg);
+            padding: 4rem 0;
+        }
+
+        .feedback-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        /* footer {
+            background: var(--primary-color);
+            padding: 4rem 0 2rem;
+        } */
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Custom styling untuk memperindah tampilan */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6366f1, #4f46e5);
+            --secondary-gradient: linear-gradient(135deg, #f59e0b, #d97706);
+            --text-gradient: linear-gradient(135deg, #1e293b, #334155);
+        }
+
+        /* Efek glass morphism */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        /* Animasi hover yang lebih halus */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navbar yang lebih modern */
+        .modern-nav {
+            background: transparent;
+            backdrop-filter: none;
+            transition: all 0.3s ease;
+        }
+
+        .modern-nav.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Tambahkan padding-top pada hero section */
+#beranda {
+    padding-top: 4rem; /* Sesuaikan nilai ini jika diperlukan */
+}
+
+/* Update warna teks navbar saat di atas landing page */
+.nav-text-light {
+    color: white !important;
+}
+
+.nav-text-light:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+        /* Card design yang lebih modern */
+        .modern-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .modern-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Skill badges yang lebih menarik */
+        .skill-badge {
+            background: var(--secondary-gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            display: inline-block;
+        }
+
+        /* Button styling yang lebih modern */
+        .modern-button {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .modern-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Timeline styling yang lebih menarik */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--primary-gradient);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -0.5rem;
+            top: 0;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: #6366f1;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Footer yang lebih modern */
+        .modern-footer {
+            background: var(--text-gradient);
+            color: white;
+            padding: 4rem 0;
+        }
+
+        /* Animasi loading */
+        .loading-animation {
+            width: 3rem;
+            height: 3rem;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #6366f1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Proyek carousel yang lebih profesional */
+        .carousel {
+            background-color: var(--light-bg);
+            padding: 3rem 0;
+        }
+
+        .carousel-card {
+            background: white;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .carousel-card img {
+            height: 250px;
+            object-fit: cover;
+        }
+        
+
+        /* Foto Profil */
+        .cardg, .card1 {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+}
+
+.card:hover .overlay {
+    height: 50px;
+}
+
+.overlay-text {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.containerg {
+    height: auto;
+    width: auto;
+    max-height: 800px;
+    max-width: 1280px;
+    min-height: 600px;
+    min-width: 1000px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.card1-border, .borderg {
+    height: 369px;
+    width: 290px;
+    background: transparent;
+    border-radius: 10px;
+    transition: border 1s;
+    position: relative;
+}
+
+.card1-border:hover, .borderg:hover {
+    border: 1px solid #fff;
+}
+
+.card1-border {
+    height: 440px;
+}
+
+.big-card, .cardg {
+    height: 379px;
+    width: 300px;
+    background: #808080;
+    border-radius: 10px;
+    transition: background 0.8s;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card1 {
+    background: url("rikobgmerah.jpg") center center no-repeat;
+    background-size: 300px;
+}
+
+.card1:hover {
+    background: url("rikobgmerah.jpg") center center no-repeat;
+    background-size: 400px; /* Ukuran zoom yang lebih kecil */
+}
+
+.card1:hover h2 {
+    opacity: 1;
+}
+
+.card1:hover .fa {
+    opacity: 1;
+}
+
+h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #000000 !important;
+    margin: 20px;
+    opacity: 1 !important;
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.fa {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.card1-icons, .icons {
+    position: absolute;
+    fill: #fff;
+    color: #fff;
+    height: 130px;
+    top: 226px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card1-icons {
+    top: 295px;
+}
+
+.card1-icons:hover .fa, .icons:hover .fa {
+    transform: scale(1.025s);
+    transition: 1s;
+}
+
+        /* Add these new styles for carousel */
+        .card-animation-cont {
+            position: relative;
+            max-width: 900px;  /* Reduced from 1200px */
+            margin: 0 auto;
+            padding: 20px 40px;  /* Reduced horizontal padding */
+        }
+
+        .card-animation-cont .card {
+            height: 320px;  /* Reduced from 400px */
+            max-width: 800px;  /* Added max-width for better control */
+            margin: 10px auto;  /* Reduced margin */
+        }
+
+        .card-animation-cont .card img {
+            height: 200px;  /* Specific height for images */
+            object-fit: cover;
+        }
+
+        .card-animation-cont .card .info {
+            height: 65%;  /* Adjusted for new card height */
+            padding: 15px;  /* Reduced padding */
+        }
+
+        /* Custom arrow styling */
+        .card-animation-cont .slick-prev,
+        .card-animation-cont .slick-next {
+            width: 35px;  /* Reduced from 40px */
+            height: 35px;  /* Reduced from 40px */
+            background: #e67e22;
+            border-radius: 50%;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .card-animation-cont .slick-prev {
+            left: -5px;
+        }
+
+        .card-animation-cont .slick-next {
+            right: -5px;
+        }
+
+        .card-animation-cont .slick-prev:hover,
+        .card-animation-cont .slick-next:hover {
+            background: #d35400;
+            transform: scale(1.1);
+        }
+
+        .card-animation-cont .slick-prev:before,
+        .card-animation-cont .slick-next:before {
+            font-size: 18px;  /* Reduced from 20px */
+            color: white;
+            opacity: 1;
+        }
+
+        /* Dots styling */
+        .card-animation-cont .slick-dots {
+            bottom: -30px;  /* Reduced from -40px */
+        }
+
+        .card-animation-cont .slick-dots li button:before {
+            font-size: 10px;  /* Reduced from 12px */
+            color: #e67e22;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .card-animation-cont {
+                padding: 15px 20px;  /* Further reduced padding for mobile */
+                max-width: 100%;
+            }
+
+            .card-animation-cont .card {
+                height: 300px;  /* Slightly smaller for mobile */
+                margin: 5px auto;
+            }
+
+            .card-animation-cont .card img {
+                height: 180px;  /* Slightly smaller for mobile */
+            }
+
+            .card-animation-cont .card .info {
+                padding: 12px;
+            }
+
+            .card-animation-cont .slick-prev,
+            .card-animation-cont .slick-next {
+                display: none !important;
+            }
+        }
+
+        /* Certificate Card Styles */
+        .certificate-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: #6366f1;
+        }
+
+        .certificate-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .certificate-content {
+            flex: 1;
+        }
+
+        .certificate-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .certificate-desc {
+            color: #636e72;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .btn-outline-primary {
+            border-color: #6366f1;
+            color: #6366f1;
+            transition: all 0.3s ease;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #6366f1;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .certificate-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .certificate-icon {
+                margin: 0 auto 20px;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Add Slick Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Riko Rizky - Personal Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <link rel="icon" href="1694716131277.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+        rel="stylesheet"
+        />
+        <script
+        src="https://kit.fontawesome.com/70c682a6d6.js"
+        crossorigin="anonymous"
+        ></script>
+
+    <!-- Tambahkan font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navbar -->
+<nav id="navbar" class="fixed w-full z-50 top-0 left-0 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <a href="#" class="text-2xl font-bold text-white">Riko Rizky</a>
+            </div>
+
+            <!-- Navigation Links (center) -->
+            <div class="hidden md:flex space-x-8 justify-center flex-1 text-white">
+                <a href="#beranda" class="hover:text-orange-400">Beranda</a>
+                <a href="#biodata" class="hover:text-orange-400">Tentang</a>
+                <a href="#project" class="hover:text-orange-400">Project</a>
+                <a href="#kontak" class="hover:text-orange-400">Kontak</a>
+            </div>
+
+            <!-- Social Icons (right) -->
+            <div class="hidden md:flex items-center space-x-4 text-white">
+                <a href="https://www.instagram.com/sir_ikoo/" class="hover:text-orange-400">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="https://www.facebook.com/share/1B6SEkLcN1/" class="hover:text-orange-400">
+                    <i class="fab fa-facebook text-xl"></i>
+                </a>
+                <a href="https://x.com/sir_ikoo" class="hover:text-orange-400">
+                    <i class="fab fa-x-twitter text-xl"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-button" class="text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden px-4 py-4 space-y-4 text-center bg-black/50 backdrop-blur-sm rounded-b-lg shadow-lg">
+    <a href="#beranda" class="block text-lg font-medium text-white hover:text-orange-400 transition duration-200">Beranda</a>
+    <a href="#biodata" class="block text-lg font-medium text-white hover:text-orange-400 transition duration-200">Tentang</a>
+    <a href="#project" class="block text-lg font-medium text-white hover:text-orange-400 transition duration-200">Project</a>
+    <a href="#kontak" class="block text-lg font-medium text-white hover:text-orange-400 transition duration-200">Kontak</a>
+
+    <!-- Social Icons -->
+    <div class="flex justify-center space-x-6 pt-3">
+        <a href="https://www.instagram.com/sir_ikoo/" class="text-white hover:text-orange-400">
+            <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="https://www.facebook.com/share/1B6SEkLcN1/" class="text-white hover:text-orange-400">
+            <i class="fab fa-facebook text-xl"></i>
+        </a>
+        <a href="https://x.com/sir_ikoo" class="text-white hover:text-orange-400">
+            <i class="fab fa-x-twitter text-xl"></i>
+        </a>
+    </div>
+</div>
+</nav>
+
+
+    <div class="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <div class="relative h-screen w-full" id="beranda">
+        <div class="absolute inset-0">
+            <!-- Tampilan Desktop -->
+            <img src="LandingPage.png" alt="Landing Page" class="hidden md:block absolute inset-0 w-full h-full object-cover">
+            <!-- Tampilan Mobile -->
+            <img src="Mobile.png" alt="Landing Page Mobile" class="block md:hidden absolute inset-0 w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-white text-center z-10">
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full p-3 mt-10" id="biodata">
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs" id="biodataTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab">Profil & Pendidikan</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="experience-tab" data-bs-toggle="tab" data-bs-target="#experience" type="button" role="tab">Pengalaman Kerja</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="skills-tab" data-bs-toggle="tab" data-bs-target="#skills" type="button" role="tab">Sertifikat & Pelatihan</button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="biodataTabsContent">
+            <!-- Profile & Education Tab -->
+            <div class="tab-pane fade show active" id="profile" role="tabpanel">
+                <div class="containerg">
+                    <div class="card1 big-card">
+                        <div class="card1-border">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card shadow-lg">
+                            <div class="card-body">
+                                <h4 class="card-title mb-4"><b>Jenjang Pendidikan</b></h4>
+                                <div class="timeline">
+                                    <div class="timeline-item mb-4">
+                                        <h5><b>Sekolah Dasar</b></h5>
+                                        <p class="text-muted">Tahun 2013 - 2019</p>
+                                        <p>Menempuh Pendidikan di SDN Pelandakan 02 kota Cirebon.</p>
+                                    </div>
+                                    <div class="timeline-item mb-4">
+                                        <h5><b>Sekolah Menengah Pertama</b></h5>
+                                        <p class="text-muted">Tahun 2019 - 2022</p>
+                                        <p>Menempuh Pendidikan di SMPN 02 Kota Cirebon.</p>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <h5><b>Sekolah Menengah Kejuruan</b></h5>
+                                        <p class="text-muted">Tahun 2022 - 2025</p>
+                                        <p>Menempuh Pendidikan di SMK Informatika Al-Irysad Al-Islamiyyah Kota Cirebon.</p>
+                                    <p>"Fokus pada jurusan Rekayasa Perangkat Lunak, mempelajari dasar-dasar pemrograman, pengembangan web, dan pengelolaan basis data."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Work Experience Tab -->
+            <div class="tab-pane fade" id="experience" role="tabpanel">
+                <div class="containerg">
+                    <div class="col-md-12">
+                        <div class="card shadow-lg">
+                            <div class="card-body">
+                                <h4 class="card-title mb-4">Pengalaman Kerja</h4>
+                                <div class="timeline">
+                                    <div class="timeline-item mb-4">
+                                        <h5><b>PKL di Badan Pusat Statistik (BPS) Kota Cirebon</b></h5>
+                                        <p class="text-muted">Tahun 2024</p>
+                                        <ul>
+                                            <li>- Mengembangkan website pengelolaan data untuk Kelurahan Kesambi</li>
+                                            <li>- Membuat infografis untuk visualisasi data</li>
+                                            <li>- Mengolah dan menganalisis data menggunakan Microsoft Excel</li>
+                                            <li>- Berkolaborasi dengan tim untuk menyelesaikan proyek</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title mb-3">Pengalaman Organisasi</h4>
+                                <div class="timeline">
+                                    <div class="timeline-item mb-4">
+                                        <h5><b>Ketua Organisasi</b></h5>
+                                        <p class="text-muted">Tahun 2023 - 2024</p>
+                                        <ul>
+                                            <li>- Palang Merah Remaja (PMR)</li>
+                                            <li>- Ikatan Remaja Masjid Al-Ishlah (IRMAIS)</li>
+                                        </ul>
+                                        <h5 class="pt-3"><b>Anggota Organisasi</b></h5>
+                                            <p class="text-muted">Tahun 2023 - 2024</p>
+                                            <ul>
+                                                <li>- Osis</li>
+                                                <li>- Pramuka</li>
+                                                <li>- Basket</li>
+                                            </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="skills" role="tabpanel">
+                <div class="containerg">
+                    <div class="col-md-12">
+                        <div class="card shadow-lg">
+                            <div class="card-body">
+                                <div class="section-header">
+                                    <h2>Sertifikat & Pelatihan</h2>
+                                    <hr>
+                                </div>
+                                <div class="row g-4">
+                                    <!-- Sertifikat PKL -->
+                                    <div class="col-md-6">
+                                        <div class="certificate-card">
+                                            <div class="certificate-icon" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">
+                                                <i class="fa-solid fa-medal fa-2x"></i>
+                                            </div>
+                                            <div class="certificate-content">
+                                                <h5 class="certificate-title">Sertifikat PKL</h5>
+                                                <p class="certificate-desc">Praktik Kerja Lapangan di Badan Pusat Statistik Kota Cirebon</p>
+                                                <a href="https://drive.google.com/drive/folders/1hatSOkXB7qTLJo5QC8ibhBwBSnnY3Dt8" class="btn btn-outline-primary btn-sm" target="_blank">
+                                                    <i class="fa-solid fa-eye me-2"></i>Lihat Sertifikat
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Sertifikat UKK -->
+                                    <div class="col-md-6">
+                                        <div class="certificate-card">
+                                            <div class="certificate-icon" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">
+                                                <i class="fa-solid fa-award fa-2x"></i>
+                                            </div>
+                                            <div class="certificate-content">
+                                                <h5 class="certificate-title">Sertifikat UKK</h5>
+                                                <p class="certificate-desc">Uji Kompetensi Keahlian Rekayasa Perangkat Lunak</p>
+                                                <a href="https://drive.google.com/drive/folders/1hatSOkXB7qTLJo5QC8ibhBwBSnnY3Dt8" class="btn btn-outline-primary btn-sm" target="_blank">
+                                                    <i class="fa-solid fa-eye me-2"></i>Lihat Sertifikat
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Sertifikat Karier.mu -->
+                                    <div class="col-md-6">
+                                        <div class="certificate-card">
+                                            <div class="certificate-icon" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">
+                                                <i class="fa-solid fa-graduation-cap fa-2x"></i>
+                                            </div>
+                                            <div class="certificate-content">
+                                                <h5 class="certificate-title">Sertifikat Karier.mu</h5>
+                                                <p class="certificate-desc">Menjadi Talenta Siap Bisnis</p>
+                                                <a href="https://drive.google.com/drive/folders/1hatSOkXB7qTLJo5QC8ibhBwBSnnY3Dt8" class="btn btn-outline-primary btn-sm" target="_blank">
+                                                    <i class="fa-solid fa-eye me-2"></i>Lihat Sertifikat
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Sertifikat Karier.mu Persiapan Kerja -->
+                                    <div class="col-md-6">
+                                        <div class="certificate-card">
+                                            <div class="certificate-icon" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">
+                                                <i class="fa-solid fa-briefcase fa-2x"></i>
+                                            </div>
+                                            <div class="certificate-content">
+                                                <h5 class="certificate-title">Sertifikat Karier.mu</h5>
+                                                <p class="certificate-desc">Kelas Persiapan Kerja</p>
+                                                <a href="https://drive.google.com/drive/folders/1hatSOkXB7qTLJo5QC8ibhBwBSnnY3Dt8" class="btn btn-outline-primary btn-sm" target="_blank">
+                                                    <i class="fa-solid fa-eye me-2"></i>Lihat Sertifikat
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- projek -->
+    <h2 class="text-4xl font-bold text-center text-gray-900 mb-12 mb-4 pt-4" id="project">Sebagian Aplikasi Saya</h2>
+    <hr>
+    <div class="card-animation-cont pt-4">
+        <a href="https://rikorizky.github.io/mycafe.github.io/">
+        <div class="card">
+            <img src="mycafe.png" alt=""/>
+            <div class="info">
+                    <strong>My Cafe</strong>
+                    <span class="sub-title">Website tentang Cafe</span>
+                <hr/>
+                <div class="hide-info">
+                    <span class="text">
+                        Ini adalah website yang saya buat ketika saya masih berada di kelas 10. Website menjadi awal mula proses saya untuk berkembang di dunia IT. 
+                    </span>
+                </div>
+            </div>
+        </div>
+    </a>
+
+        <a href="https://github.com/MuhammadRaffaFadellah/sista-bijak">
+        <div class="card">
+            <img src="sistabijak.png" alt="" />
+            <div class="info">
+                <strong>Sista Bijak</strong>
+                <span class="sub-title">Kesambi Juara Dalam Angka</span>
+                <hr/>
+                <div class="hide-info">
+                    <span class="text">
+                        Ini adalah tugas yang saya dapatkan dari tempat PKL saya, di Badan Pusat Statistik Kota Cirebon. Saya di tugaskan untuk membuat website pengelolahan data yang nantinya akan di gunakan oleh Kelurahan Kesambi. Website ini berfungsi untuk mengelolahan data penduduk.
+                    </span>
+                </div>
+            </div>
+        </div>
+        </a>
+
+        <a href="https://rikorizky.github.io/dibuka.github.oi">
+        <div class="card">
+                <img src="ultah.png" alt="" />
+                <div class="info">
+                    <strong>Ulang Tahun</strong>
+                    <span class="sub-title">Website Ucapan Ulang Tahun</span>
+                    <hr/>
+                    <div class="hide-info">
+                        <span class="text">
+                            Website ini dibuat pada saat saya masih berada di kelas 10, untuk mengucapkan selamat ulang tahun kepada teman saya.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- <section id="proyek" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Proyek Terbaru</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                    <a href="https://rikorizky.github.io/mycafe.github.io/">
+                    <img src="mycafe.png" alt="Project 1" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Website Cafe</h3>
+                        <p class="text-gray-600">Platform melihat dan memesan menu cafe</p>
+                    </div>
+                </a>
+                </div>
+                <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                    <a href="https://github.com/MuhammadRaffaFadellah/sista-bijak">
+                        <img src="sistabijak.png" alt="Project 2" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Sista Bijak</h3>
+                            <p class="text-gray-600">ini adalah website yang saya buat untuk kelurahan Kesambi, pada saat saya PKL di Badan Pusat Statistik kota Cirebon.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="card-hover bg-white rounded-xl overflow-hidden shadow-lg">
+                    <a href="">
+                        <img src="modepagi.png" alt="Project 3" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Portfolio Website</h3>
+                            <p class="text-gray-600">Website portfolio dengan desain responsif</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <div class="containerg">
+        <div class="col-md-11">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                <h4 class="display-6"><strong>Berikan Saran, Masukan dan bintang</strong></h4>
+                <form id="saranForm" onsubmit="sendEmail(event)">
+                    <div class="toast" id="pesanNotifikasi" data-autohide="true" data-delay="3000" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <strong class="mr-auto">Notifikasi</strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="toast-body">    
+                            Pesan Anda telah berhasil terkirim.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <div class="input-cont">
+                                    <input type="text" name="name" id="fullname" placeholder="Fullname" required style="width: 100%;"/>
+                                    <label for="name">Name</label>
+                                </div>
+                                <div class="input-cont mt-1">
+                                    <input type="text" name="email" id="email" placeholder="Email" required style="width: 100%;"/>
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pesan" class="form-label">Pesan</label>
+                                <textarea class="form-control" id="pesan" name="pesan" rows="5" placeholder="Tuliskan Pesan..." required></textarea>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <div class="feedback">
+                                    <div class="rating">
+                                        <input type="radio" name="rating" id="rating-5" value="5" />
+                                        <label for="rating-5"></label>
+                                        <input type="radio" name="rating" id="rating-4" value="4" />
+                                        <label for="rating-4"></label>
+                                        <input type="radio" name="rating" id="rating-3" value="3" />
+                                        <label for="rating-3"></label>
+                                        <input type="radio" name="rating" id="rating-2" value="2" />
+                                        <label for="rating-2"></label>
+                                        <input type="radio" name="rating" id="rating-1" value="1" />
+                                        <label for="rating-1"></label>
+                                    <div class="emoji-wrapper">
+                                        <div class="emoji">
+                                        <svg
+                                            class="rating-0"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 512 512"
+                                        >
+                                            <circle cx="256" cy="256" r="256" fill="#ffd93b" />
+                                            <path
+                                            d="M512 256c0 141.44-114.64 256-256 256-80.48 0-152.32-37.12-199.28-95.28 43.92 35.52 99.84 56.72 160.72 56.72 141.36 0 256-114.56 256-256 0-60.88-21.2-116.8-56.72-160.72C474.8 103.68 512 175.52 512 256z"
+                                            fill="#f4c534"
+                                            />
+                                            <ellipse
+                                            transform="scale(-1) rotate(31.21 715.433 -595.455)"
+                                            cx="166.318"
+                                            cy="199.829"
+                                            rx="56.146"
+                                            ry="56.13"
+                                            fill="#fff"
+                                            />
+                                            <ellipse
+                                            transform="rotate(-148.804 180.87 175.82)"
+                                            cx="180.871"
+                                            cy="175.822"
+                                            rx="28.048"
+                                            ry="28.08"
+                                            fill="#3e4347"
+                                            />
+                                            <ellipse
+                                            transform="rotate(-113.778 194.434 165.995)"
+                                            cx="194.433"
+                                            cy="165.993"
+                                            rx="8.016"
+                                            ry="5.296"
+                                            fill="#5a5f63"
+                                            />
+                                            <ellipse
+                                            transform="scale(-1) rotate(31.21 715.397 -1237.664)"
+                                            cx="345.695"
+                                            cy="199.819"
+                                            rx="56.146"
+                                            ry="56.13"
+                                            fill="#fff"
+                                            />
+                                            <ellipse
+                                            transform="rotate(-148.804 360.25 175.837)"
+                                            cx="360.252"
+                                            cy="175.84"
+                                            rx="28.048"
+                                            ry="28.08"
+                                            fill="#3e4347"
+                                            />
+                                            <ellipse
+                                            transform="scale(-1) rotate(66.227 254.508 -573.138)"
+                                            cx="373.794"
+                                            cy="165.987"
+                                            rx="8.016"
+                                            ry="5.296"
+                                            fill="#5a5f63"
+                                            />
+                                            <path
+                                            d="M370.56 344.4c0 7.696-6.224 13.92-13.92 13.92H155.36c-7.616 0-13.92-6.224-13.92-13.92s6.304-13.92 13.92-13.92h201.296c7.696.016 13.904 6.224 13.904 13.92z"
+                                            fill="#3e4347"
+                                            />
+                                        </svg>
+                                        <svg
+                                            class="rating-1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 512 512"
+                                        >
+                                            <circle cx="256" cy="256" r="256" fill="#ffd93b" />
+                                            <path
+                                            d="M512 256A256 256 0 0 1 56.7 416.7a256 256 0 0 0 360-360c58.1 47 95.3 118.8 95.3 199.3z"
+                                            fill="#f4c534"
+                                            />
+                                            <path
+                                            d="M328.4 428a92.8 92.8 0 0 0-145-.1 6.8 6.8 0 0 1-12-5.8 86.6 86.6 0 0 1 84.5-69 86.6 86.6 0 0 1 84.7 69.8c1.3 6.9-7.7 10.6-12.2 5.1z"
+                                            fill="#3e4347"
+                                            />
+                                            <path
+                                            d="M269.2 222.3c5.3 62.8 52 113.9 104.8 113.9 52.3 0 90.8-51.1 85.6-113.9-2-25-10.8-47.9-23.7-66.7-4.1-6.1-12.2-8-18.5-4.2a111.8 111.8 0 0 1-60.1 16.2c-22.8 0-42.1-5.6-57.8-14.8-6.8-4-15.4-1.5-18.9 5.4-9 18.2-13.2 40.3-11.4 64.1z"
+                                            fill="#f4c534"
+                                            />
+                                            <path
+                                            d="M357 189.5c25.8 0 47-7.1 63.7-18.7 10 14.6 17 32.1 18.7 51.6 4 49.6-26.1 89.7-67.5 89.7-41.6 0-78.4-40.1-82.5-89.7A95 95 0 0 1 298 174c16 9.7 35.6 15.5 59 15.5z"
+                                            fill="#fff"
+                                            />
+                                            <path
+                                            d="M396.2 246.1a38.5 38.5 0 0 1-38.7 38.6 38.5 38.5 0 0 1-38.6-38.6 38.6 38.6 0 1 1 77.3 0z"
+                                            fill="#3e4347"
+                                            />
+                                            <path
+                                            d="M380.4 241.1c-3.2 3.2-9.9 1.7-14.9-3.2-4.8-4.8-6.2-11.5-3-14.7 3.3-3.4 10-2 14.9 2.9 4.9 5 6.4 11.7 3 15z"
+                                            fill="#fff"
+                                            />
+                                            <path
+                                            d="M242.8 222.3c-5.3 62.8-52 113.9-104.8 113.9-52.3 0-90.8-51.1-85.6-113.9 2-25 10.8-47.9 23.7-66.7 4.1-6.1 12.2-8 18.5-4.2 16.2 10.1 36.2 16.2 60.1 16.2 22.8 0 42.1-5.6 57.8-14.8 6.8-4 15.4-1.5 18.9 5.4 9 18.2 13.2 40.3 11.4 64.1z"
+                                            fill="#f4c534"
+                                            />
+                                            <path
+                                            d="M155 189.5c-25.8 0-47-7.1-63.7-18.7-10 14.6-17 32.1-18.7 51.6-4 49.6 26.1 89.7 67.5 89.7 41.6 0 78.4-40.1 82.5-89.7A95 95 0 0 0 214 174c-16 9.7-35.6 15.5-59 15.5z"
+                                            fill="#fff"
+                                            />
+                                            <path
+                                            d="M115.8 246.1a38.5 38.5 0 0 0 38.7 38.6 38.5 38.5 0 0 0 38.6-38.6 38.6 38.6 0 1 0-77.3 0z"
+                                            fill="#3e4347"
+                                            />
+                                            <path
+                                            d="M131.6 241.1c3.2 3.2 9.9 1.7 14.9-3.2 4.8-4.8 6.2-11.5 3-14.7-3.3-3.4-10-2-14.9 2.9-4.9 5-6.4 11.7-3 15z"
+                                            fill="#fff"
+                                            />
+                                        </svg>
+                                        <svg
+                                            class="rating-2"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 512 512"
+                                        >
+                                            <circle cx="256" cy="256" r="256" fill="#ffd93b" />
+                                            <path
+                                            d="M512 256A256 256 0 0 1 56.7 416.7a256 256 0 0 0 360-360c58.1 47 95.3 118.8 95.3 199.3z"
+                                            fill="#f4c534"
+                                            />
+                                            <path
+                                            d="M336.6 403.2c-6.5 8-16 10-25.5 5.2a117.6 117.6 0 0 0-110.2 0c-9.4 4.9-19 3.3-25.6-4.6-6.5-7.7-4.7-21.1 8.4-28 45.1-24 99.5-24 144.6 0 13 7 14.8 19.7 8.3 27.4z"
+                                            fill="#3e4347"
+                                            />
+                                            <path
+                                            d="M276.6 244.3a79.3 79.3 0 1 1 158.8 0 79.5 79.5 0 1 1-158.8 0z"
+                                            fill="#fff"
+                                            />
+                                            <circle cx="340" cy="260.4" r="36.2" fill="#3e4347" />
+                                            <g fill="#fff">
+                                            <ellipse
+                                                transform="rotate(-135 326.4 246.6)"
+                                                cx="326.4"
+                                                cy="246.6"
+                                                rx="6.5"
+                                                ry="10"
+                                            />
+                                            <path
+                                                d="M231.9 244.3a79.3 79.3 0 1 0-158.8 0 79.5 79.5 0 1 0 158.8 0z"
+                                            />
+                                            </g>
+                                            <circle cx="168.5" cy="260.4" r="36.2" fill="#3e4347" />
+                                            <ellipse
+                                            transform="rotate(-135 182.1 246.7)"
+                                            cx="182.1"
+                                            cy="246.7"
+                                            rx="10"
+                                            ry="6.5"
+                                            fill="#fff"
+                                            />
+                                        </svg>
+                                        <svg
+                                            class="rating-3"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 512 512"
+                                        >
+                                            <circle cx="256" cy="256" r="256" fill="#ffd93b" />
+                                            <path
+                                            d="M407.7 352.8a163.9 163.9 0 0 1-303.5 0c-2.3-5.5 1.5-12 7.5-13.2a780.8 780.8 0 0 1 288.4 0c6 1.2 9.9 7.7 7.6 13.2z"
+                                            fill="#3e4347"
+                                            />
+                                            <path
+                                            d="M512 256A256 256 0 0 1 56.7 416.7a256 256 0 0 0 360-360c58.1 47 95.3 118.8 95.3 199.3z"
+                                            fill="#f4c534"
+                                            />
+                                            <g fill="#fff">
+                                            <path
+                                                d="M115.3 339c18.2 29.6 75.1 32.8 143.1 32.8 67.1 0 124.2-3.2 143.2-31.6l-1.5-.6a780.6 780.6 0 0 0-284.8-.6z"
+                                            />
+                                            <ellipse cx="356.4" cy="205.3" rx="81.1" ry="81" />
+                                            </g>
+                                            <ellipse
+                                            cx="356.4"
+                                            cy="205.3"
+                                            rx="44.2"
+                                            ry="44.2"
+                                            fill="#3e4347"
+                                            />
+                                            <g fill="#fff">
+                                            <ellipse
+                                                transform="scale(-1) rotate(45 454 -906)"
+                                                cx="375.3"
+                                                cy="188.1"
+                                                rx="12"
+                                                ry="8.1"
+                                            />
+                                            <ellipse cx="155.6" cy="205.3" rx="81.1" ry="81" />
+                                            </g>
+                                            <ellipse
+                                            cx="155.6"
+                                            cy="205.3"
+                                            rx="44.2"
+                                            ry="44.2"
+                                            fill="#3e4347"
+                                            />
+                                            <ellipse
+                                            transform="scale(-1) rotate(45 454 -421.3)"
+                                            cx="174.5"
+                                            cy="188"
+                                            rx="12"
+                                            ry="8.1"
+                                            fill="#fff"
+                                            />
+                                        </svg>
+                                        <svg
+                                            class="rating-4"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 512 512"
+                                        >
+                                            <circle cx="256" cy="256" r="256" fill="#ffd93b" />
+                                            <path
+                                            d="M512 256A256 256 0 0 1 56.7 416.7a256 256 0 0 0 360-360c58.1 47 95.3 118.8 95.3 199.3z"
+                                            fill="#f4c534"
+                                            />
+                                            <path
+                                            d="M232.3 201.3c0 49.2-74.3 94.2-74.3 94.2s-74.4-45-74.4-94.2a38 38 0 0 1 74.4-11.1 38 38 0 0 1 74.3 11.1z"
+                                            fill="#e24b4b"
+                                            />
+                                            <path
+                                            d="M96.1 173.3a37.7 37.7 0 0 0-12.4 28c0 49.2 74.3 94.2 74.3 94.2C80.2 229.8 95.6 175.2 96 173.3z"
+                                            fill="#d03f3f"
+                                            />
+                                            <path
+                                            d="M215.2 200c-3.6 3-9.8 1-13.8-4.1-4.2-5.2-4.6-11.5-1.2-14.1 3.6-2.8 9.7-.7 13.9 4.4 4 5.2 4.6 11.4 1.1 13.8z"
+                                            fill="#fff"
+                                            />
+                                            <path
+                                            d="M428.4 201.3c0 49.2-74.4 94.2-74.4 94.2s-74.3-45-74.3-94.2a38 38 0 0 1 74.4-11.1 38 38 0 0 1 74.3 11.1z"
+                                            fill="#e24b4b"
+                                            />
+                                            <path
+                                            d="M292.2 173.3a37.7 37.7 0 0 0-12.4 28c0 49.2 74.3 94.2 74.3 94.2-77.8-65.7-62.4-120.3-61.9-122.2z"
+                                            fill="#d03f3f"
+                                            />
+                                            <path
+                                            d="M411.3 200c-3.6 3-9.8 1-13.8-4.1-4.2-5.2-4.6-11.5-1.2-14.1 3.6-2.8 9.7-.7 13.9 4.4 4 5.2 4.6 11.4 1.1 13.8z"
+                                            fill="#fff"
+                                            />
+                                            <path
+                                            d="M381.7 374.1c-30.2 35.9-75.3 64.4-125.7 64.4s-95.4-28.5-125.8-64.2a17.6 17.6 0 0 1 16.5-28.7 627.7 627.7 0 0 0 218.7-.1c16.2-2.7 27 16.1 16.3 28.6z"
+                                            fill="#3e4347"
+                                            />
+                                            <path
+                                            d="M256 438.5c25.7 0 50-7.5 71.7-19.5-9-33.7-40.7-43.3-62.6-31.7-29.7 15.8-62.8-4.7-75.6 34.3 20.3 10.4 42.8 17 66.5 17z"
+                                            fill="#e24b4b"
+                                            />
+                                        </svg>
+                                        <svg
+                                            class="rating-5"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 512 512"
+                                        >
+                                            <g fill="#ffd93b">
+                                            <circle cx="256" cy="256" r="256" />
+                                            <path
+                                                d="M512 256A256 256 0 0 1 56.8 416.7a256 256 0 0 0 360-360c58 47 95.2 118.8 95.2 199.3z"
+                                            />
+                                            </g>
+                                            <path
+                                            d="M512 99.4v165.1c0 11-8.9 19.9-19.7 19.9h-187c-13 0-23.5-10.5-23.5-23.5v-21.3c0-12.9-8.9-24.8-21.6-26.7-16.2-2.5-30 10-30 25.5V261c0 13-10.5 23.5-23.5 23.5h-187A19.7 19.7 0 0 1 0 264.7V99.4c0-10.9 8.8-19.7 19.7-19.7h472.6c10.8 0 19.7 8.7 19.7 19.7z"
+                                            fill="#e9eff4"
+                                            />
+                                            <path
+                                            d="M204.6 138v88.2a23 23 0 0 1-23 23H58.2a23 23 0 0 1-23-23v-88.3a23 23 0 0 1 23-23h123.4a23 23 0 0 1 23 23z"
+                                            fill="#45cbea"
+                                            />
+                                            <path
+                                            d="M476.9 138v88.2a23 23 0 0 1-23 23H330.3a23 23 0 0 1-23-23v-88.3a23 23 0 0 1 23-23h123.4a23 23 0 0 1 23 23z"
+                                            fill="#e84d88"
+                                            />
+                                            <g fill="#38c0dc">
+                                            <path
+                                                d="M95.2 114.9l-60 60v15.2l75.2-75.2zM123.3 114.9L35.1 203v23.2c0 1.8.3 3.7.7 5.4l116.8-116.7h-29.3z"
+                                            />
+                                            </g>
+                                            <g fill="#d23f77">
+                                            <path
+                                                d="M373.3 114.9l-66 66V196l81.3-81.2zM401.5 114.9l-94.1 94v17.3c0 3.5.8 6.8 2.2 9.8l121.1-121.1h-29.2z"
+                                            />
+                                            </g>
+                                            <path
+                                            d="M329.5 395.2c0 44.7-33 81-73.4 81-40.7 0-73.5-36.3-73.5-81s32.8-81 73.5-81c40.5 0 73.4 36.3 73.4 81z"
+                                            fill="#3e4347"
+                                            />
+                                            <path
+                                            d="M256 476.2a70 70 0 0 0 53.3-25.5 34.6 34.6 0 0 0-58-25 34.4 34.4 0 0 0-47.8 26 69.9 69.9 0 0 0 52.6 24.5z"
+                                            fill="#e24b4b"
+                                            />
+                                            <path
+                                            d="M290.3 434.8c-1 3.4-5.8 5.2-11 3.9s-8.4-5.1-7.4-8.7c.8-3.3 5.7-5 10.7-3.8 5.1 1.4 8.5 5.3 7.7 8.6z"
+                                            fill="#fff"
+                                            opacity=".2"
+                                            />
+                                        </svg>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <button type="submit" class="btn btn-primary">Kirim</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Informasi Singkat</h4>
+                    <hr>
+                    <p>Saya adalah seorang Web Developer yang berdedikasi untuk menciptakan solusi digital yang inovatif dan fungsional. Dengan pengalaman dalam pengembangan web dan desain UI/UX, saya selalu berusaha memberikan yang terbaik dalam setiap proyek.</p>
+                </div>
+                
+                <div class="col-md-4 ms-auto" id="kontak">
+                    <h4>Kontak</h4>
+                    <hr>
+                    <p>Email  : rikorizky20@gmail.com</p>
+                    <p>No Telpon    : 081223209190</p>
+                    <div class="social-icons mt-3">
+                        <a href="https://www.instagram.com/sir_ikoo/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1B6SEkLcN1/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/sir_ikoo"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://discord.com/channels/@me"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center text-warning puter">
+                <p>Copyright &copy; <span id="current-year"></span> - RIKO RIZKY All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sertakan perpustakaan yang diperlukan (jika belum disertakan) -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        var nav = document.querySelector('nav');
+        var scrolled = false;
+    
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 100 && !scrolled) {
+            nav.classList.add('bg-dark', 'shadow');
+            scrolled = true;
+            } else if (window.pageYOffset <= 100 && scrolled) {
+            nav.classList.remove('bg-dark', 'shadow');
+            scrolled = false;
+            }
+        });
+        });
+    </script>
+
+    <script>
+    // Script kedua untuk carousel dan teks selamat datang
+    $(document).ready(function () {
+        $(".carousel").slick({
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        arrows: false,
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+            {
+            breakpoint: 1367,
+            settings: {
+                slidesToShow: 3,
+            },
+            },
+            {
+            breakpoint: 1200,
+            settings: {
+                slidesToShow: 2,
+            },
+            },
+            {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 1,
+            },
+            },
+        ],
+        });
+
+        var text = "Selamat Datang";
+        var index = 0;
+
+        function typeWriter() {
+        if (index < text.length) {
+            $('#welcome-text').append(text.charAt(index));
+            index++;
+            setTimeout(typeWriter, 100); // Ganti angka ini untuk mengatur kecepatan ketik
+        }
+        }
+
+        typeWriter();
+    });
+    </script>
+
+    <script>
+    // Script ketiga untuk menangani pengiriman formulir dan menampilkan notifikasi toast
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("saranForm");
+        const toast = new bootstrap.Toast(document.getElementById("pesanNotifikasi"));
+
+        form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        // Simulasi pengiriman pesan (Anda dapat menggantinya dengan kode pengiriman sesungguhnya)
+        setTimeout(function () {
+            toast.show();
+            form.reset(); // Untuk mereset formulir setelah pesan terkirim
+        }, 1000);
+        });
+    });
+    </script>
+
+    <script>
+        // Mendapatkan tahun saat ini
+        const currentYear = new Date().getFullYear();
+        // Mengisi elemen dengan ID 'current-year' dengan tahun saat ini
+        document.getElementById('current-year').textContent = currentYear;
+    </script>
+
+    <!-- Script Scroll Navbar -->
+<script>
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 20) {
+            navbar.classList.add("navbar-scrolled");
+        } else {
+            navbar.classList.remove("navbar-scrolled");
+        }
+    });
+
+    // Toggle mobile menu
+    const menuBtn = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
+</script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    var nav = document.querySelector('nav');
+    var navLinks = document.querySelectorAll('.nav-link');
+    var navBrand = document.querySelector('.nav-brand');
+    var socialIcons = document.querySelectorAll('.social-icon');
+    
+    function updateNavbar() {
+        if (window.scrollY > 100) {
+            nav.classList.add('scrolled');
+            // Ubah warna teks menjadi gelap saat di-scroll
+            navLinks.forEach(link => {
+                link.classList.remove('nav-text-light');
+                link.classList.add('text-gray-700');
+            });
+            socialIcons.forEach(icon => {
+                icon.classList.remove('nav-text-light');
+                icon.classList.add('text-gray-600');
+            });
+        } else {
+            nav.classList.remove('scrolled');
+            // Kembalikan warna teks menjadi putih saat di atas
+            navLinks.forEach(link => {
+                link.classList.add('nav-text-light');
+                link.classList.remove('text-gray-700');
+            });
+            socialIcons.forEach(icon => {
+                icon.classList.add('nav-text-light');
+                icon.classList.remove('text-gray-600');
+            });
+        }
+    }
+
+    // Panggil fungsi saat halaman dimuat
+    updateNavbar();
+    
+    // Panggil fungsi saat di-scroll
+    window.addEventListener('scroll', updateNavbar);
+});
+    </script>
+
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script>
+        // Konfigurasi Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyfBX1-5BVvc tNSP1S2Sp6mxWpS3t-SmYw",
+            authDomain: "cafe-feedback-d74e5.firebaseapp.com",
+            projectId: "cafe-feedback-d74e5",
+            storageBucket: "cafe-feedback-d74e5.appspot.com",
+            messagingSenderId: "930863827089",
+            appId: "1:930863827089:web:d24d0d9277340b698e51730",
+            measurementId: "G-8M1NHBVXVS"
+        };
+    
+        // Inisialisasi Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+    <script>
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+    
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const navHeight = document.querySelector('nav').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                
+                window.scrollTo({
+                    top: targetPosition - navHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    </script>
+    <script>
+        // Tambahkan fungsi ini di file new.js atau dalam tag <script> di index.html
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scroll untuk semua link dengan href yang dimulai dengan #
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const navHeight = document.querySelector('nav').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                
+                window.scrollTo({
+                    top: targetPosition - navHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script>
+        // Inisialisasi EmailJS
+        (function() {
+            emailjs.init("ZBsQyaygr0Vk9LqZO");
+        })();
+    
+        // Tangkap form dengan ID yang sesuai
+        const form = document.getElementById('saranForm');
+        
+        function sendEmail(e) {
+            e.preventDefault();
+            
+            // Ambil nilai dari form dengan selector yang tepat
+            const nama = document.querySelector('input[name="name"]').value;
+            const email = document.querySelector('input[name="email"]').value;
+            const pesan = document.querySelector('textarea[name="pesan"]').value;
+            const rating = document.querySelector('input[name="rating"]:checked')?.value || 'Tidak ada rating';
+    
+            console.log('Data yang akan dikirim:', {
+                nama, email, pesan, rating
+            });
+
+            const templateParams = {
+                from_name: nama,
+                from_email: email,
+                message: pesan,
+                rating: rating
+            };
+    
+            emailjs.send('Mautauaja12', 'template_4x8eo6o', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response);
+                    // Tampilkan toast notification
+                    const toast = new bootstrap.Toast(document.getElementById("pesanNotifikasi"));
+                    toast.show();
+                    // Reset form
+                    document.getElementById('saranForm').reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Gagal mengirim pesan. Silakan coba lagi.');
+                });
+        }
+    
+        // Tambahkan event listener ke form
+        if (form) {
+            form.addEventListener('submit', sendEmail);
+        }
+    </script>
+
+    <!-- Add this script before closing body tag -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var $carousel = $('.card-animation-cont').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false
+                        }
+                    }
+                ]
+            });
+
+            // Pause carousel when clicking on a card
+            $('.card').on('click', function(e) {
+                // Only prevent default and pause if clicking on the card image or info section
+                if ($(e.target).closest('.card img').length || $(e.target).closest('.card .info').length) {
+                    e.preventDefault();
+                    $carousel.slick('slickPause');
+                    $(this).addClass('active');
+                }
+            });
+
+            // Resume autoplay when clicking outside of cards
+            $(document).on('click', function(e) {
+                // Only resume if clicking outside of cards and not on any form elements
+                if (!$(e.target).closest('.card').length && 
+                    !$(e.target).closest('form').length && 
+                    !$(e.target).closest('.rating').length) {
+                    $carousel.slick('slickPlay');
+                    $('.card').removeClass('active');
+                }
+            });
+        });
+    </script>
+
+    <style>
+        /* Add active state styling */
+        .card-animation-cont .card.active {
+            box-shadow: 0 5px 20px rgba(230, 126, 34, 0.3);
+            transform: translateY(-5px);
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ratingInputs = document.querySelectorAll('.rating input[type="radio"]');
+            const emoji = document.querySelector('.emoji');
+
+            ratingInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    const rating = this.value;
+                    emoji.style.transform = `translateY(-${(rating - 0) * 100}px)`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
