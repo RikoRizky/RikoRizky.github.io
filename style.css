@@ -1482,9 +1482,6 @@ p {
 }
 
 .footer-link-item .arrow {
-    align-items: center;
-    text-align: center;
-    justify-content: center;
     display: inline-block;
     background: linear-gradient(90deg, #f97316, #ff6b6b);
     -webkit-background-clip: text;
@@ -1494,10 +1491,11 @@ p {
     font-size: 1.18em;
     font-weight: bold;
     opacity: 0;
-    transform: translate(0.5em, -0.05em) scale(0.85);
+    transform: translateX(18px) scale(0.85);
     transition: opacity 0.3s cubic-bezier(0.4,0,0.2,1) 0.08s, filter 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.3s cubic-bezier(0.4,0,0.2,1) 0.08s;
     filter: drop-shadow(0 0 3px #f97316aa);
     pointer-events: none;
+    line-height: 1; /* Biar rata persis */
 }
 
 .footer-link-item:hover {
