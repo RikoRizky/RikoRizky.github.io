@@ -1025,7 +1025,7 @@ h2 {
         <div class="flex justify-between items-center h-20">
             <!-- Logo -->
             <div class="flex-shrink-0">
-                <a href="#" class="text-2xl font-bold text-white hover:text-orange-400 transition duration-300">Riko Rizky</a>
+                <a href="#beranda" class="text-2xl font-bold text-white hover:text-orange-400 transition duration-300">Riko Rizky</a>
             </div>
 
             <!-- Navigation Links (center) -->
@@ -1343,7 +1343,7 @@ h2 {
         <h2 class="text-4xl font-bold text-center text-gray-900 mb-12 mb-4 pt-4">Sebagian Aplikasi Saya</h2>
     <hr>
     <div class="card-animation-cont pt-4">
-        <a href="https://rikorizky.github.io/mycafe.github.io/">
+        <a href="https://rikorizky.github.io/mycafe.github.io/" target="_blank">
                 <div class="card scroll-animation stagger-animation">
             <img src="mycafe.png" alt=""/>
             <div class="info">
@@ -1359,7 +1359,7 @@ h2 {
         </div>
     </a>
 
-        <a href="https://github.com/MuhammadRaffaFadellah/sista-bijak">
+        <a href="https://github.com/MuhammadRaffaFadellah/sista-bijak" target="_blank">
                 <div class="card scroll-animation stagger-animation">
             <img src="sistabijak.png" alt="" />
             <div class="info">
@@ -1375,7 +1375,7 @@ h2 {
         </div>
         </a>
 
-        <a href="https://rikorizky.github.io/dibuka.github.oi">
+        <a href="https://rikorizky.github.io/dibuka.github.oi" target="_blank">
                 <div class="card scroll-animation stagger-animation">
                 <img src="ultah.png" alt="" />
                 <div class="info">
@@ -1835,54 +1835,6 @@ h2 {
             }
         });
         });
-    </script>
-
-    <script>
-    // Script kedua untuk carousel dan teks selamat datang
-    $(document).ready(function () {
-        $(".carousel").slick({
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 1000,
-        arrows: false,
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        responsive: [
-            {
-            breakpoint: 1367,
-            settings: {
-                slidesToShow: 3,
-            },
-            },
-            {
-            breakpoint: 1200,
-            settings: {
-                slidesToShow: 2,
-            },
-            },
-            {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 1,
-            },
-            },
-        ],
-        });
-
-        var text = "Selamat Datang";
-        var index = 0;
-
-        function typeWriter() {
-        if (index < text.length) {
-            $('#welcome-text').append(text.charAt(index));
-            index++;
-            setTimeout(typeWriter, 100); // Ganti angka ini untuk mengatur kecepatan ketik
-        }
-        }
-
-        typeWriter();
-    });
     </script>
 
     <script>
