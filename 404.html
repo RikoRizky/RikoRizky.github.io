@@ -12,8 +12,22 @@
     .notfound-emoji { font-size:6rem; margin-bottom:1rem; }
     .notfound-title { font-size:2.5rem; font-weight:bold; margin-bottom:1rem; }
     .notfound-desc { font-size:1.2rem; margin-bottom:2rem; }
-    .notfound-btn { background:linear-gradient(90deg,#6366f1,#f97316);color:#fff;padding:0.75rem 2rem;border-radius:999px;font-weight:500;text-decoration:none;transition:0.2s;display:inline-block; }
-    .notfound-btn:hover { background:linear-gradient(90deg,#f97316,#6366f1);transform:scale(1.05); }
+    .notfound-btn {
+      background: #0d6efd !important;
+      color: #fff !important;
+      padding: 0.75rem 2rem;
+      border-radius: 999px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.2s;
+      display: inline-block;
+      border: none;
+    }
+    .notfound-btn:hover {
+      background: #084298 !important;
+      color: #fff !important;
+      transform: scale(1.05);
+    }
     @media (max-width:600px){ .notfound-title{font-size:1.5rem;} .notfound-emoji{font-size:3.5rem;} }
     body.dark-mode { background:#18181b;color:#fff; }
     /* Minimalist Dark/Light Toggle Button */
@@ -70,15 +84,20 @@
       themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
     }
   }
-  // On load: cek localStorage
-  const savedTheme = localStorage.getItem('theme');
+  // On load: cek localStorage (dengan fallback)
+  let savedTheme = 'light';
+  try {
+    savedTheme = localStorage.getItem('theme') || 'light';
+  } catch(e) {}
   applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
   // On toggle
   themeBtn.addEventListener('click', function() {
     const isDark = document.body.classList.toggle('dark-mode');
     themeBtn.classList.toggle('active');
     themeBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    try {
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    } catch(e) {}
   });
   </script>
 </body>
