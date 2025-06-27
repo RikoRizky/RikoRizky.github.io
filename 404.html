@@ -1,120 +1,181 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Halaman Tidak Ditemukan</title>
-    <link rel="icon" href="LandingPage.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:700&display=swap" rel="stylesheet">
-    <style>
-        html, body { height: 100%; margin: 0; padding: 0; }
-        body {
-            min-height: 100vh;
-            background: #fff;
-            color: #23272f;
-            font-family: 'Roboto Mono', monospace;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            transition: background 0.3s, color 0.3s;
-        }
-        body.dark-mode {
-            background: #18181b !important;
-            color: #fff !important;
-        }
-        .notfound-container {
-            text-align: center;
-            padding: 2rem 1rem;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-            background: rgba(255,255,255,0.85);
-            max-width: 400px;
-            margin: 2rem auto;
-        }
-        body.dark-mode .notfound-container {
-            background: rgba(24,24,27,0.95);
-            box-shadow: 0 4px 24px rgba(0,0,0,0.25);
-        }
-        .notfound-emoji {
-            margin-bottom: 1rem;
-        }
-        .notfound-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            letter-spacing: 2px;
-        }
-        .notfound-desc {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: #666;
-        }
-        body.dark-mode .notfound-desc {
-            color: #bdbdbd;
-        }
-        .notfound-btn {
-            background: #0d6efd;
-            color: #fff;
-            padding: 0.75rem 2rem;
-            border-radius: 999px;
-            font-weight: 500;
-            text-decoration: none;
-            font-size: 1.1rem;
-            border: none;
-            transition: background 0.2s, color 0.2s, transform 0.2s;
-            display: inline-block;
-            box-shadow: 0 2px 8px rgba(13,110,253,0.08);
-        }
-        .notfound-btn:hover {
-            background: #084298;
-            color: #fff;
-            transform: scale(1.05);
-        }
-        @media (max-width: 600px) {
-            .notfound-container { max-width: 98vw; padding: 1.2rem 0.5rem; }
-            .notfound-title { font-size: 1.5rem; }
-            .notfound-emoji svg { width: 80px !important; height: 80px !important; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Not Found</title>
+  <link rel="icon" href="LandingPage.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <style>
+    html, body { height: 100%; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background: #fff;
+      font-family: 'Roboto Mono', monospace;
+      transition: background 0.3s, color 0.3s;
+      color: #23272f;
+    }
+    body.dark-mode {
+      background: #18181b !important;
+      color: #fff !important;
+    }
+    #app { min-height: 100vh; }
+    .glitchy-text {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-align: center;
+      margin: 0.5em 0;
+      color: inherit;
+      font-size: 2.2rem;
+    }
+    .four-oh-four__code {
+      font-size: 3.5rem;
+      margin-bottom: 0.2em;
+    }
+    .four-oh-four__code-message {
+      font-size: 1.5rem;
+      margin-bottom: 1.2em;
+    }
+    .bear-logo {
+      max-width: 180px;
+      object-fit: contain;
+      height: 6rem;
+      width: 6rem;
+      display: block;
+      margin: 0 auto 1.2em auto;
+    }
+    .return-link {
+      color: #f97316;
+      font-weight: bold;
+      text-decoration: underline;
+      font-size: 1.1rem;
+      display: block;
+      margin: 2rem auto 1rem auto;
+      text-align: center;
+      border-radius: 999px;
+      padding: 0.5em 1.5em;
+      background: transparent;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: none;
+      cursor: pointer;
+    }
+    .return-link:hover {
+      background: #f97316;
+      color: #fff;
+      text-decoration: none;
+    }
+    body.dark-mode .return-link {
+      color: #f97316;
+      background: transparent;
+    }
+    body.dark-mode .return-link:hover {
+      background: #f97316;
+      color: #fff;
+    }
+    @media (max-width: 600px) {
+      .glitchy-text { font-size: 1.2rem !important; }
+      .four-oh-four__code { font-size: 2.2rem !important; }
+      .bear-logo { width: 4rem !important; height: 4rem !important; }
+    }
+  </style>
 </head>
 <body>
-    <div class="notfound-container">
-        <div class="notfound-emoji">
-            <!-- Bear SVG -->
-            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <ellipse cx="60" cy="70" rx="45" ry="40" fill="#803300"/>
-                <ellipse cx="30" cy="45" rx="15" ry="18" fill="#803300"/>
-                <ellipse cx="90" cy="45" rx="15" ry="18" fill="#803300"/>
-                <ellipse cx="60" cy="90" rx="30" ry="18" fill="#e9c6af"/>
-                <ellipse cx="60" cy="70" rx="25" ry="18" fill="#e9c6af"/>
-                <ellipse cx="60" cy="80" rx="10" ry="6" fill="#fff"/>
-                <ellipse cx="60" cy="82" rx="5" ry="3" fill="#23272f"/>
-                <ellipse cx="48" cy="68" rx="3" ry="4" fill="#23272f"/>
-                <ellipse cx="72" cy="68" rx="3" ry="4" fill="#23272f"/>
-                <path d="M55 95 Q60 100 65 95" stroke="#23272f" stroke-width="2" fill="none"/>
-                <ellipse cx="48" cy="72" rx="1.2" ry="0.7" fill="#fff"/>
-                <ellipse cx="72" cy="72" rx="1.2" ry="0.7" fill="#fff"/>
-                <ellipse cx="60" cy="60" rx="18" ry="8" fill="#1a1a1a"/>
-                <ellipse cx="60" cy="58" rx="16" ry="6" fill="#e50000"/>
-            </svg>
-        </div>
-        <div class="notfound-title">404 - Halaman Tidak Ditemukan</div>
-        <div class="notfound-desc">Maaf, halaman yang kamu cari tidak ditemukan.<br/>Cek kembali URL atau kembali ke beranda.</div>
-        <a href="/" class="notfound-btn">Kembali ke Beranda</a>
-    </div>
-    <script>
-        // Sinkronkan dark mode dari localStorage
-        (function() {
-            try {
-                var theme = localStorage.getItem('theme');
-                if (theme === 'dark') {
-                    document.body.classList.add('dark-mode');
-                } else {
-                    document.body.classList.remove('dark-mode');
-                }
-            } catch(e) {}
-        })();
-    </script>
+  <div id="app"></div>
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/styled-components/dist/styled-components.min.js"></script>
+  <script>
+    // Sinkronkan dark mode dari localStorage
+    (function() {
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.body.classList.add('dark-mode');
+        } else {
+          document.body.classList.remove('dark-mode');
+        }
+      } catch(e) {}
+    })();
+  </script>
+  <script>
+    const { useEffect } = React;
+    const { render } = ReactDOM;
+    const styled = window.styled.default;
+    const GLITCH_CHARS = '`¡™£¢∞§¶•ªº–≠åß∂ƒ©˙∆˚¬…æ≈ç√∫˜µ≤≥÷/?░▒▓<>/'.split('');
+    const ReadableChar = styled.span``;
+    const GlitchyChar = styled.span``;
+    const GlitchyText = ({ children, ...props }) => {
+      return (
+        <h1 {...props} className={`glitchy-text ${props.className||''}`}>
+          <ReadableChar className="glitchy-text__char--readable">{children}</ReadableChar>
+          {children.split('').map((char, idx) => {
+            const charStyle = { '--count': Math.random() * 5 + 1 };
+            for (let i = 0; i < 10; i++) {
+              charStyle[`--char-${i}`] = `"${GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)]}"`;
+            }
+            return (
+              <GlitchyChar className="glitchy-text__char" aria-hidden={true} data-char={char} key={`glitch-char--${idx}`} style={charStyle}>{char}</GlitchyChar>
+            );
+          })}
+        </h1>
+      );
+    };
+    const Logo = ({ className }) => (
+      <svg className={`bear-logo ${className||''}`} viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <g transform="matrix(1.34105 0 0 1.34105 -51.157 -1049.694)">
+          <ellipse cx="150" cy="170" rx="90" ry="80" fill="#803300"/>
+          <ellipse cx="70" cy="110" rx="40" ry="45" fill="#803300"/>
+          <ellipse cx="230" cy="110" rx="40" ry="45" fill="#803300"/>
+          <ellipse cx="150" cy="220" rx="60" ry="40" fill="#e9c6af"/>
+          <ellipse cx="150" cy="170" rx="50" ry="40" fill="#e9c6af"/>
+          <ellipse cx="150" cy="200" rx="20" ry="12" fill="#fff"/>
+          <ellipse cx="150" cy="205" rx="10" ry="6" fill="#23272f"/>
+          <ellipse cx="120" cy="170" rx="8" ry="10" fill="#23272f"/>
+          <ellipse cx="180" cy="170" rx="8" ry="10" fill="#23272f"/>
+          <ellipse cx="120" cy="175" rx="2.5" ry="1.5" fill="#fff"/>
+          <ellipse cx="180" cy="175" rx="2.5" ry="1.5" fill="#fff"/>
+          <ellipse cx="150" cy="140" rx="36" ry="16" fill="#1a1a1a"/>
+          <ellipse cx="150" cy="135" rx="32" ry="10" fill="#e50000"/>
+        </g>
+      </svg>
+    );
+    const Container = styled.div`
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      width: 100vw;
+    `;
+    const FourOhFour = () => {
+      useEffect(() => {
+        const root = document.documentElement;
+        const update = e => {
+          if (e.acceleration && e.acceleration.x !== null) {
+            root.style.setProperty('--X', e.acceleration.x);
+            root.style.setProperty('--Y', e.acceleration.y);
+          } else {
+            root.style.setProperty('--X', e.pageX / window.innerWidth - 0.5);
+            root.style.setProperty('--Y', e.pageY / window.innerHeight - 0.5);
+          }
+        };
+        document.body.addEventListener('mousemove', update);
+        window.ondevicemotion = update;
+        return () => {
+          document.body.removeEventListener('mousemove', update);
+        };
+      }, []);
+      return (
+        <Container>
+          <Logo className="bear-logo--tears" />
+          <GlitchyText className="four-oh-four__code">404</GlitchyText>
+          <GlitchyText className="four-oh-four__code-message">Halaman Tidak Ditemukan</GlitchyText>
+          <a className="return-link" href="/">Kembali ke Beranda</a>
+        </Container>
+      );
+    };
+    render(<FourOhFour />, document.getElementById('app'));
+  </script>
 </body>
 </html>
