@@ -987,7 +987,18 @@ h2 {
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Riko Rizky - Personal Branding Page</title>
+    <title>Riko Rizky - Web Developer & Portfolio</title>
+    <meta name="description" content="Portofolio Riko Rizky, web developer dari Cirebon. Lihat projek, keahlian, dan kontak.">
+    <meta property="og:title" content="Riko Rizky - Web Developer">
+    <meta property="og:description" content="Portofolio Riko Rizky, web developer dari Cirebon.">
+    <meta property="og:image" content="https://rikorizky.github.io/LandingPage.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rikorizky.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Riko Rizky - Web Developer">
+    <meta name="twitter:description" content="Portofolio Riko Rizky, web developer dari Cirebon.">
+    <meta name="twitter:image" content="https://rikorizky.github.io/LandingPage.png">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
@@ -1153,9 +1164,9 @@ h2 {
                             <h3>Riko Rizky Baswara</h3>
                             <p>Portofolio ini bukan sekadar hasil, tapi perjalanan panjang yang penuh makna.</p>
                             <div class="personal-info mt-3">
-                                <p><i class="fas fa-map-marker-alt me-2"></i> Negara : Indonesia</p>
-                                <p><i class="fas fa-calendar-alt me-2"></i> Tempat, Tanggal Lahir: Kota Cirebon, 26 November 2006</p>
-                                <p><i class="fas fa-home me-2"></i> Alamat: Bumi Arumsari, Jalan Kruing II No.45, Cirebon Girang.</p>
+                                <p><i class="fas fa-globe-asia me-2"></i> Negara : Indonesia</p>
+                                <p><i class="fas fa-map-marker-alt me-2"></i> Asal : Kota Cirebon</p>
+                                <p><i class="fas fa-house me-2"></i> Domisili : Kota Cirebon, Jawa Barat</p>
                             </div>
                         </div>
                     </div>
@@ -1340,7 +1351,7 @@ h2 {
     </div>
 
     <div id="project" class="scroll-animation fade-in-up">
-        <h2 class="text-4xl font-bold text-center text-gray-900 mb-12 mb-4 pt-4">Sebagian Aplikasi Saya</h2>
+        <h3 class="text-4xl font-bold text-center text-gray-900 mb-12 mb-4 pt-4 px-4 section-header">Sebagian Aplikasi Saya</h3>
     <hr>
     <div class="card-animation-cont pt-4">
         <a href="https://rikorizky.github.io/mycafe.github.io/" target="_blank">
@@ -1800,7 +1811,7 @@ h2 {
                         </li>
                         <li class="d-flex align-items-center">
                             <i class="fas fa-map-marker-alt me-3"></i>
-                            <span class="text-light">Cirebon, Indonesia</span>
+                            <span class="text-light">Kota Cirebon, Indonesia</span>
                         </li>
                     </ul>
             </div>
@@ -2154,6 +2165,54 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(element);
         });
     }
+    </script>
+
+    <!-- Minimalist Dark/Light Toggle Button (pojok kanan bawah) -->
+    <button id="theme-toggle" class="theme-toggle-minimal" title="Toggle dark/light mode">
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <script>
+    // Dark/Light mode persistent & fix auto dark bug
+    const themeBtn = document.getElementById('theme-toggle');
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeBtn.classList.add('active');
+        themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        document.body.classList.remove('dark-mode');
+        themeBtn.classList.remove('active');
+        themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+    }
+    // On load: cek localStorage
+    const savedTheme = localStorage.getItem('theme');
+    applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+    // On toggle
+    themeBtn.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      themeBtn.classList.toggle('active');
+      themeBtn.innerHTML = document.body.classList.contains('dark-mode') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      // Update localStorage
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
+    </script>
+
+    <script>
+    // SweetAlert2 theme auto dark/light
+    (function() {
+      const originalSwalFire = window.Swal.fire;
+      window.Swal.fire = function(options) {
+        const isDark = document.body.classList.contains('dark-mode');
+        if (!options.customClass) options.customClass = {};
+        options.background = isDark ? '#23272f' : '#fff';
+        options.color = isDark ? '#f3f4f6' : '#333';
+        options.customClass.popup = (options.customClass.popup||'') + (isDark ? ' swal2-dark' : '');
+        options.customClass.confirmButton = (options.customClass.confirmButton||'') + (isDark ? ' swal2-confirm-dark' : '');
+        return originalSwalFire.call(this, options);
+      };
+    })();
     </script>
 </body>
 </html>
