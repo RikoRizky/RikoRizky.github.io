@@ -13,22 +13,71 @@
       background: #fff;
       font-family: 'Roboto Mono', monospace;
       transition: background 0.3s, color 0.3s;
+      color: #23272f;
     }
-    @media (prefers-color-scheme: dark) {
-      body { background: #18181b; color: #fff; }
-    }
-    #app { min-height: 100vh; }
     body.dark-mode {
       background: #18181b !important;
       color: #fff !important;
+    }
+    #app { min-height: 100vh; }
+    .glitchy-text {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-align: center;
+      margin: 0.5em 0;
+    }
+    @media (max-width: 600px) {
+      .glitchy-text { font-size: 1.3rem !important; }
+      .bear-logo { width: 4rem !important; height: 4rem !important; }
+    }
+    .bear-logo { max-width: 400px; object-fit: contain; height: 6rem; width: 6rem; display: block; margin: 0 auto; }
+    a.return-link {
+      color: #f97316;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.2rem;
+      display: block;
+      margin: 2rem auto 1rem auto;
+      text-align: center;
+      border-radius: 999px;
+      padding: 0.5em 1.5em;
+      background: #fff3e0;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    body.dark-mode a.return-link {
+      background: #23272f;
+      color: #f97316;
+    }
+    a.return-link:hover {
+      background: #f97316;
+      color: #fff;
+    }
+    body.dark-mode a.return-link:hover {
+      background: #f97316;
+      color: #fff;
     }
   </style>
 </head>
 <body>
   <div id="app"></div>
-  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/styled-components/dist/styled-components.min.js"></script>
+  <script>
+    // Ikuti preferensi dark/light mode user dari localStorage
+    (function() {
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.body.classList.add('dark-mode');
+        } else {
+          document.body.classList.remove('dark-mode');
+        }
+      } catch(e) {}
+    })();
+  </script>
   <script>
     const { useEffect } = React;
     const { render } = ReactDOM;
@@ -73,6 +122,9 @@
       grid-gap: 0 1rem;
       grid-template-columns: auto 1fr;
       grid-template-rows: auto auto;
+      align-items: center;
+      justify-items: center;
+      margin: 0 auto;
     `;
     const Code = styled(GlitchyText)`
       align-self: end;
@@ -84,6 +136,7 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      width: 100vw;
     `;
     const CodeMessage = styled(GlitchyText)`
       font-size: 1.5rem;
@@ -130,19 +183,6 @@
       );
     };
     render(<FourOhFour />, document.getElementById('app'));
-  </script>
-  <script>
-    // Ikuti preferensi dark/light mode user dari localStorage
-    (function() {
-      try {
-        var theme = localStorage.getItem('theme');
-        if (theme === 'dark') {
-          document.body.classList.add('dark-mode');
-        } else {
-          document.body.classList.remove('dark-mode');
-        }
-      } catch(e) {}
-    })();
   </script>
 </body>
 </html> 
