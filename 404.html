@@ -1,73 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Not Found</title>
+    <title>404 - Halaman Tidak Ditemukan</title>
     <link rel="icon" href="LandingPage.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:700&display=swap" rel="stylesheet">
     <style>
         html, body { height: 100%; margin: 0; padding: 0; }
         body {
             min-height: 100vh;
             background: #fff;
-            font-family: 'Roboto Mono', monospace;
-            transition: background 0.3s, color 0.3s;
             color: #23272f;
+            font-family: 'Roboto Mono', monospace;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: background 0.3s, color 0.3s;
         }
         body.dark-mode {
             background: #18181b !important;
             color: #fff !important;
         }
-        #app { min-height: 100vh; }
-        .glitchy-text {
-            font-family: 'Roboto Mono', monospace;
-            font-weight: bold;
-            letter-spacing: 2px;
+        .notfound-container {
             text-align: center;
-            margin: 0.5em 0;
-            color: inherit;
+            padding: 2rem 1rem;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            background: rgba(255,255,255,0.85);
+            max-width: 400px;
+            margin: 2rem auto;
+        }
+        body.dark-mode .notfound-container {
+            background: rgba(24,24,27,0.95);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+        }
+        .notfound-emoji {
+            margin-bottom: 1rem;
+        }
+        .notfound-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+        .notfound-desc {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+        body.dark-mode .notfound-desc {
+            color: #bdbdbd;
+        }
+        .notfound-btn {
+            background: #0d6efd;
+            color: #fff;
+            padding: 0.75rem 2rem;
+            border-radius: 999px;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border: none;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(13,110,253,0.08);
+        }
+        .notfound-btn:hover {
+            background: #084298;
+            color: #fff;
+            transform: scale(1.05);
         }
         @media (max-width: 600px) {
-            .glitchy-text { font-size: 1.3rem !important; }
-            .bear-logo { width: 4rem !important; height: 4rem !important; }
-        }
-        .bear-logo { max-width: 400px; object-fit: contain; height: 6rem; width: 6rem; display: block; margin: 0 auto; }
-        a.return-link {
-            color: #f97316;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 1.2rem;
-            display: block;
-            margin: 2rem auto 1rem auto;
-            text-align: center;
-            border-radius: 999px;
-            padding: 0.5em 1.5em;
-            background: #fff3e0;
-            transition: background 0.2s, color 0.2s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-        body.dark-mode a.return-link {
-            background: #23272f;
-            color: #f97316;
-        }
-        a.return-link:hover {
-            background: #f97316;
-            color: #fff;
-        }
-        body.dark-mode a.return-link:hover {
-            background: #f97316;
-            color: #fff;
+            .notfound-container { max-width: 98vw; padding: 1.2rem 0.5rem; }
+            .notfound-title { font-size: 1.5rem; }
+            .notfound-emoji svg { width: 80px !important; height: 80px !important; }
         }
     </style>
 </head>
 <body>
-    <div id="app"></div>
-    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/styled-components/dist/styled-components.min.js"></script>
+    <div class="notfound-container">
+        <div class="notfound-emoji">
+            <!-- Bear SVG -->
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="60" cy="70" rx="45" ry="40" fill="#803300"/>
+                <ellipse cx="30" cy="45" rx="15" ry="18" fill="#803300"/>
+                <ellipse cx="90" cy="45" rx="15" ry="18" fill="#803300"/>
+                <ellipse cx="60" cy="90" rx="30" ry="18" fill="#e9c6af"/>
+                <ellipse cx="60" cy="70" rx="25" ry="18" fill="#e9c6af"/>
+                <ellipse cx="60" cy="80" rx="10" ry="6" fill="#fff"/>
+                <ellipse cx="60" cy="82" rx="5" ry="3" fill="#23272f"/>
+                <ellipse cx="48" cy="68" rx="3" ry="4" fill="#23272f"/>
+                <ellipse cx="72" cy="68" rx="3" ry="4" fill="#23272f"/>
+                <path d="M55 95 Q60 100 65 95" stroke="#23272f" stroke-width="2" fill="none"/>
+                <ellipse cx="48" cy="72" rx="1.2" ry="0.7" fill="#fff"/>
+                <ellipse cx="72" cy="72" rx="1.2" ry="0.7" fill="#fff"/>
+                <ellipse cx="60" cy="60" rx="18" ry="8" fill="#1a1a1a"/>
+                <ellipse cx="60" cy="58" rx="16" ry="6" fill="#e50000"/>
+            </svg>
+        </div>
+        <div class="notfound-title">404 - Halaman Tidak Ditemukan</div>
+        <div class="notfound-desc">Maaf, halaman yang kamu cari tidak ditemukan.<br/>Cek kembali URL atau kembali ke beranda.</div>
+        <a href="/" class="notfound-btn">Kembali ke Beranda</a>
+    </div>
     <script>
-        // Ikuti preferensi dark/light mode user dari localStorage
+        // Sinkronkan dark mode dari localStorage
         (function() {
             try {
                 var theme = localStorage.getItem('theme');
@@ -78,112 +115,6 @@
                 }
             } catch(e) {}
         })();
-    </script>
-    <script>
-        const { useEffect } = React;
-        const { render } = ReactDOM;
-        const styled = window.styled.default;
-        const GLITCH_CHARS = '`¡™£¢∞§¶•ªº–≠åß∂ƒ©˙∆˚¬…æ≈ç√∫˜µ≤≥÷/?░▒▓<>/'.split('');
-        const ReadableChar = styled.span``;
-        const GlitchyChar = styled.span``;
-        const GlitchyText = ({ children, ...props }) => {
-            return (
-                <h1 {...props} className={`glitchy-text ${props.className||''}`}>
-                    <ReadableChar className="glitchy-text__char--readable">{children}</ReadableChar>
-                    {children.split('').map((char, idx) => {
-                        const charStyle = { '--count': Math.random() * 5 + 1 };
-                        for (let i = 0; i < 10; i++) {
-                            charStyle[`--char-${i}`] = `"${GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)]}"`;
-                        }
-                        return (
-                            <GlitchyChar className="glitchy-text__char" aria-hidden={true} data-char={char} key={`glitch-char--${idx}`} style={charStyle}>{char}</GlitchyChar>
-                        );
-                    })}
-                </h1>
-            );
-        };
-        const Logo = ({ className }) => (
-            <svg className={`bear-logo ${className||''}`} viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-                <g transform="matrix(1.34105 0 0 1.34105 -51.157 -1049.694)">
-                    <path d="M242.822 893.869c0 61.251-41.365 106.284-94.67 106.284-53.306 0-90.974-45.033-90.974-106.284 0-61.252 37.668-85.951 90.973-85.951 53.306 0 94.67 24.699 94.67 85.95z" fill="#803300"/>
-                    <path d="M211.925 958.105c0 19.907-28.138 38.819-62.85 38.819-34.71 0-61-18.912-61-38.82 0-19.907 26.29-33.273 61-33.273 34.712 0 62.85 13.366 62.85 33.274z" fill="#e9c6af"/>
-                    <path d="M179.114 931.763c0 7.657-19.04 24.493-30.27 24.493s-32.117-16.836-32.117-24.493 20.888-12.477 32.118-12.477 30.27 4.82 30.27 12.477z"/>
-                    <ellipse ry="23.111" rx="23.762" cy="827.682" cx="68.304" fill="#803300"/>
-                    <path d="M84.784 826.317a16.549 16.095 0 00-16.48-14.731 16.549 16.095 0 00-16.548 16.095 16.549 16.095 0 0016.548 16.096 16.549 16.095 0 001.132-.039c.815-1.337 1.582-2.727 2.471-3.983a65.703 65.703 0 015.055-6.283 65.597 65.597 0 015.713-5.548c.668-.576 1.417-1.058 2.109-1.607z" fill="#e9c6af"/>
-                    <ellipse transform="scale(-1 1)" cx="-231.243" cy="827.682" rx="23.762" ry="23.111" fill="#803300"/>
-                    <path d="M214.764 826.317a16.549 16.095 0 0116.48-14.731 16.549 16.095 0 0116.548 16.095 16.549 16.095 0 01-16.549 16.096 16.549 16.095 0 01-1.131-.039c-.816-1.337-1.582-2.727-2.472-3.983a65.703 65.703 0 00-5.055-6.283 65.597 65.597 0 00-5.712-5.548c-.67-.576-1.418-1.058-2.11-1.607z" fill="#e9c6af"/>
-                    <path d="M147.731 815.358c-13.396 0-26.022 1.079-37.671 3.334v11.353c11.649-2.255 24.275-3.334 37.671-3.334 15.104 0 29.459 1.373 42.667 4.256v-11.355c-13.208-2.883-27.564-4.254-42.667-4.254z" fill="red"/>
-                    <path d="M165.195 816.013a15.875 7.813 0 014.43 5.412 15.875 7.813 0 01-5.414 5.863c9.116.653 17.878 1.866 26.186 3.68v-11.356c-8.007-1.748-16.44-2.931-25.202-3.6z" fill="#e50000"/>
-                    <path d="M148.387 789.038c-43.49 0-75.817 18.34-83.229 62.715 12.322-10.516 27.524-17.553 44.903-21.51 0 0-2.734-13.778 10.25-16.029 12.983-2.25 14.025-4 27.421-4 15.103 0 16.422.44 30.666 4 14.245 3.561 12 17.113 12 17.113 17.218 4.421 32.483 11.864 44.9 22.71-7.275-46.03-42.684-64.999-86.911-64.999z" fill="#1a1a1a"/>
-                </g>
-            </svg>
-        );
-        const Container = styled.div`
-            display: inline-grid;
-            grid-gap: 0 1rem;
-            grid-template-columns: auto 1fr;
-            grid-template-rows: auto auto;
-            align-items: center;
-            justify-items: center;
-            margin: 0 auto;
-        `;
-        const Code = styled(GlitchyText)`
-            align-self: end;
-            font-size: 3rem;
-            @media (min-width: 768px) { font-size: 6rem; }
-        `;
-        const AppShell = styled.main`
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            width: 100vw;
-        `;
-        const CodeMessage = styled(GlitchyText)`
-            font-size: 1.5rem;
-            @media (min-width: 768px) { font-size: 3rem; }
-        `;
-        const Message = styled.a`
-            grid-column: span 2;
-            grid-row: -1;
-            text-align: center;
-            margin: 2rem auto;
-            color: #f97316;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 1.2rem;
-            &:hover { text-decoration: underline; }
-        `;
-        const FourOhFour = () => {
-            useEffect(() => {
-                const root = document.documentElement;
-                const update = e => {
-                    if (e.acceleration && e.acceleration.x !== null) {
-                        root.style.setProperty('--X', e.acceleration.x);
-                        root.style.setProperty('--Y', e.acceleration.y);
-                    } else {
-                        root.style.setProperty('--X', e.pageX / window.innerWidth - 0.5);
-                        root.style.setProperty('--Y', e.pageY / window.innerHeight - 0.5);
-                    }
-                };
-                document.body.addEventListener('mousemove', update);
-                window.ondevicemotion = update;
-                return () => {
-                    document.body.removeEventListener('mousemove', update);
-                };
-            }, []);
-            return (
-                <AppShell>
-                    <Container>
-                        <Message className="return-link" href="/" rel="noreferrer noopener">Kembali ke Beranda</Message>
-                        <Logo className="bear-logo--tears" />
-                        <Code className="four-oh-four__code">404</Code>
-                        <CodeMessage className="four-oh-four__code-message">Halaman Tidak Ditemukan</CodeMessage>
-                    </Container>
-                </AppShell>
-            );
-        };
-        render(<FourOhFour />, document.getElementById('app'));
     </script>
 </body>
 </html>
