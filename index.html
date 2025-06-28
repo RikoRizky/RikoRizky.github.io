@@ -973,6 +973,19 @@ h2 {
                 font-size: 1.8rem;
             }
         }
+
+        /* Warna ikon mata pada tombol "Lihat Sertifikat" biru di mode light, putih di mode dark, dan putih saat tombol aktif/hover di mode light */
+        .btn-outline-primary .fa-eye {
+            color: #2563eb !important; /* biru, sama seperti teks tombol */
+        }
+        .btn-outline-primary:active .fa-eye,
+        .btn-outline-primary:focus .fa-eye,
+        .btn-outline-primary:hover .fa-eye {
+            color: #fff !important;
+        }
+        .dark-mode .btn-outline-primary .fa-eye {
+            color: #fff !important;
+        }
     </style>
 
     <!-- Font Awesome -->
