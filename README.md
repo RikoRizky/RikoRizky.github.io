@@ -132,12 +132,4 @@ Terima kasih telah mengunjungi portfolio saya! Jika Anda tertarik untuk berkolab
 
 ---
 
-⭐ **Jika Anda menyukai portfolio ini, berikan star di repository GitHub!**
-
-<div align="center">
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=RikoRizky.RikoRizky.github.io" alt="visitor badge"/>
-</div>
-
----
-
 **Dibuat oleh Riko Rizky**
